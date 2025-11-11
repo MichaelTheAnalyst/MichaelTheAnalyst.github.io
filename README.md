@@ -127,4 +127,3 @@ This project is open source and available for personal use. Feel free to use thi
 ---
 
 Built with ❤️ by Masood Nazari
-
