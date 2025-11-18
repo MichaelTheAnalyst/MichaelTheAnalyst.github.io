@@ -542,13 +542,12 @@ section {
 
 .project-links {
     display: flex;
-    gap: 1.25rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 .project-link {
     text-decoration: none;
-    color: var(--primary-blue);
     font-weight: 600;
     font-size: 0.9375rem;
     display: flex;
@@ -557,13 +556,53 @@ section {
     transition: all var(--transition-base);
     padding: 0.625rem 1.25rem;
     border-radius: var(--radius-md);
-    background: var(--bg-light);
+    border: 2px solid transparent;
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
 }
 
-.project-link:hover {
-    background: var(--primary-blue);
+/* GitHub Button - Secondary Style */
+.project-link-github {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    border-color: var(--bg-light);
+}
+
+.project-link-github:hover {
+    background: var(--text-primary);
     color: white;
-    transform: translateX(5px);
+    border-color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+/* Demo Button - Primary Style with Gradient */
+.project-link-demo {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link-demo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.project-link-demo:hover::before {
+    left: 100%;
+}
+
+.project-link-demo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 98, 254, 0.4);
 }
 
 .project-link i {
@@ -571,7 +610,21 @@ section {
 }
 
 .project-link:hover i {
-    transform: scale(1.2);
+    transform: scale(1.15);
+}
+
+/* Disabled demo links (placeholder) */
+.project-link-demo[href="#"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    box-shadow: none;
+}
+
+.project-link-demo[href="#"]:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 /* ===================================
