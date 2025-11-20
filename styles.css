@@ -1503,6 +1503,133 @@ section {
     box-shadow: 0 8px 16px rgba(15, 98, 254, 0.3);
 }
 
+/* CTA Skill Category */
+.skill-category-cta {
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.08) 0%, rgba(255, 131, 43, 0.08) 100%);
+    border: 2px solid rgba(15, 98, 254, 0.2);
+    position: relative;
+    overflow: visible;
+}
+
+.skill-category-cta::before {
+    content: '💼';
+    position: absolute;
+    top: -15px;
+    right: 2rem;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
+    z-index: 1;
+}
+
+.skill-category-cta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(15, 98, 254, 0.25), 0 0 0 1px rgba(255, 131, 43, 0.2);
+    border-color: rgba(15, 98, 254, 0.3);
+}
+
+.skill-category-cta h3 {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.skill-category-cta h3 i {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.skill-cta-text {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.skill-tag-cta {
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.15), rgba(255, 131, 43, 0.15));
+    color: var(--primary-blue);
+    border: 1px solid rgba(15, 98, 254, 0.3);
+    box-shadow: 0 2px 6px rgba(15, 98, 254, 0.15);
+}
+
+.skill-tag-cta:hover {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(15, 98, 254, 0.3);
+}
+
+.skill-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    transition: all var(--transition-base);
+    box-shadow: 0 6px 20px rgba(15, 98, 254, 0.3);
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.skill-cta-button:hover::before {
+    left: 100%;
+}
+
+.skill-cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(15, 98, 254, 0.4), 0 4px 15px rgba(255, 131, 43, 0.3);
+}
+
+.skill-cta-button i {
+    transition: transform var(--transition-base);
+}
+
+.skill-cta-button:hover i {
+    transform: translateX(5px);
+}
+
 /* ===================================
    CONTACT SECTION
    =================================== */
