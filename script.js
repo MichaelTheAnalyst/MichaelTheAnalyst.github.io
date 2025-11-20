@@ -160,8 +160,28 @@ window.addEventListener('load', () => {
     setTimeout(typeText, 500);
 });
 
-// Modal functionality for project screenshots
-function openModal(imageSrc) {
+// Modal functionality for project screenshots with swipe support
+let modalImages = [];
+let currentModalIndex = 0;
+let modalCarouselId = null;
+
+function openModal(imageSrc, imgElement) {
+    // Find which carousel this image belongs to
+    const clickedImg = imgElement || event?.target || document.querySelector(`img[src="${imageSrc}"]`);
+    const carousel = clickedImg?.closest('.project-carousel');
+    
+    if (carousel) {
+        modalCarouselId = carousel.getAttribute('data-carousel');
+        const slides = carousel.querySelectorAll('.carousel-slide img');
+        modalImages = Array.from(slides).map(img => img.src);
+        currentModalIndex = modalImages.indexOf(imageSrc);
+    } else {
+        // Fallback for non-carousel images
+        modalImages = [imageSrc];
+        currentModalIndex = 0;
+        modalCarouselId = null;
+    }
+    
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     
@@ -170,18 +190,27 @@ function openModal(imageSrc) {
         const modalHTML = `
             <div id="imageModal" class="modal">
                 <span class="modal-close" onclick="closeModal()">&times;</span>
+                <button class="modal-nav modal-prev" onclick="navigateModal(-1)" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal-nav modal-next" onclick="navigateModal(1)" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
                 <div class="modal-content">
                     <img id="modalImage" src="" alt="Project Screenshot">
                 </div>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
+        initModalSwipe();
     }
     
     const newModal = document.getElementById('imageModal');
     const newModalImg = document.getElementById('modalImage');
     newModalImg.src = imageSrc;
     newModal.classList.add('active');
+    
+    updateModalNavigation();
     
     // Close on background click
     newModal.addEventListener('click', function(e) {
@@ -191,18 +220,105 @@ function openModal(imageSrc) {
     });
     
     // Close on Escape key
-    document.addEventListener('keydown', function(e) {
+    const escapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeModal();
+            document.removeEventListener('keydown', escapeHandler);
         }
-    });
+    };
+    document.addEventListener('keydown', escapeHandler);
+    
+    // Arrow key navigation
+    const arrowHandler = function(e) {
+        if (e.key === 'ArrowLeft') {
+            navigateModal(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateModal(1);
+        }
+    };
+    document.addEventListener('keydown', arrowHandler);
+    
+    // Store handler for cleanup
+    newModal._arrowHandler = arrowHandler;
+}
+
+function navigateModal(direction) {
+    if (modalImages.length <= 1) return;
+    
+    currentModalIndex += direction;
+    
+    if (currentModalIndex < 0) {
+        currentModalIndex = modalImages.length - 1;
+    } else if (currentModalIndex >= modalImages.length) {
+        currentModalIndex = 0;
+    }
+    
+    const modalImg = document.getElementById('modalImage');
+    if (modalImg) {
+        modalImg.src = modalImages[currentModalIndex];
+    }
+    
+    updateModalNavigation();
+}
+
+function updateModalNavigation() {
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+    
+    if (prevBtn && nextBtn) {
+        // Show/hide buttons based on number of images
+        if (modalImages.length > 1) {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        } else {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+    }
+}
+
+function initModalSwipe() {
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    modal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleModalSwipe();
+    }, { passive: true });
+    
+    function handleModalSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                navigateModal(1); // Swipe left - next
+            } else {
+                navigateModal(-1); // Swipe right - previous
+            }
+        }
+    }
 }
 
 function closeModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {
         modal.classList.remove('active');
+        // Clean up event listeners
+        if (modal._arrowHandler) {
+            document.removeEventListener('keydown', modal._arrowHandler);
+        }
     }
+    modalImages = [];
+    currentModalIndex = 0;
+    modalCarouselId = null;
 }
 
 // Project Carousel Functionality (Multiple Carousels)
