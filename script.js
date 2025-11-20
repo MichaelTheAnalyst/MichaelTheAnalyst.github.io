@@ -1021,3 +1021,91 @@ function setupCertificateSwipe() {
     });
 }
 
+// ===================================
+// COOKIE CONSENT BANNER
+// ===================================
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
+}
+
+function updateConsentMode(analyticsConsent, adConsent) {
+    if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', {
+            'analytics_storage': analyticsConsent ? 'granted' : 'denied',
+            'ad_storage': adConsent ? 'granted' : 'denied'
+        });
+    }
+}
+
+function showConsentBanner() {
+    const consentBanner = document.getElementById('cookieConsent');
+    if (consentBanner) {
+        consentBanner.style.display = 'block';
+    }
+}
+
+function hideConsentBanner() {
+    const consentBanner = document.getElementById('cookieConsent');
+    if (consentBanner) {
+        consentBanner.style.display = 'none';
+    }
+}
+
+function handleConsent(accepted) {
+    // Store consent preference
+    setCookie('cookie_consent', accepted ? 'accepted' : 'rejected', 365);
+    setCookie('cookie_consent_date', new Date().toISOString(), 365);
+    
+    // Update Google Analytics consent mode
+    updateConsentMode(accepted, false); // Analytics consent, no ad consent (no ads on portfolio)
+    
+    // Hide banner
+    hideConsentBanner();
+    
+    // If accepted, reload GA config to start tracking
+    if (accepted && typeof gtag !== 'undefined') {
+        gtag('config', 'G-NT8JFEDV4M', {
+            'anonymize_ip': true
+        });
+    }
+}
+
+// Initialize consent banner on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const consent = getCookie('cookie_consent');
+    
+    // If no consent cookie exists, show banner
+    if (!consent) {
+        // Small delay to ensure page is loaded
+        setTimeout(() => {
+            showConsentBanner();
+        }, 1000);
+    } else {
+        // If consent was previously given, update consent mode
+        const wasAccepted = consent === 'accepted';
+        updateConsentMode(wasAccepted, false);
+    }
+    
+    // Add event listeners to buttons
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+    
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => handleConsent(true));
+    }
+    
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => handleConsent(false));
+    }
+});
+

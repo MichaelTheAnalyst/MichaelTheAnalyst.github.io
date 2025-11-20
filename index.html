@@ -6,13 +6,25 @@
     <meta name="description" content="Masood Nazari - Business Intelligence Analyst Portfolio">
     <title>Masood Nazari | Portfolio</title>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT8JFEDV4M"></script>
+    <!-- Google tag (gtag.js) with Consent Mode -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        
+        // Set default consent state (denied until user consents)
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'wait_for_update': 500
+        });
+        
         gtag('js', new Date());
-        gtag('config', 'G-NT8JFEDV4M');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT8JFEDV4M"></script>
+    <script>
+        gtag('config', 'G-NT8JFEDV4M', {
+            'anonymize_ip': true
+        });
     </script>
     
     <link rel="stylesheet" href="styles.css">
@@ -680,6 +692,27 @@
             <p>Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent" style="display: none;">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <i class="fas fa-cookie-bite"></i>
+                <div>
+                    <h4>Cookie Consent</h4>
+                    <p>We use cookies to analyse website traffic and optimise your experience. By accepting, you consent to our use of cookies in accordance with our privacy policy.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button id="acceptCookies" class="cookie-btn cookie-btn-accept">
+                    <i class="fas fa-check"></i> Accept All
+                </button>
+                <button id="rejectCookies" class="cookie-btn cookie-btn-reject">
+                    <i class="fas fa-times"></i> Reject All
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
