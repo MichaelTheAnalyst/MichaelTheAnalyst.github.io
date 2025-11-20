@@ -785,19 +785,21 @@ section {
    PROJECT SCREENSHOTS GALLERY - ENHANCED
    =================================== */
 .project-screenshots {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
     margin: 2.5rem 0;
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--bg-lighter) 0%, var(--bg-white) 100%);
-    border-radius: var(--radius-xl);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: var(--shadow-sm);
     position: relative;
 }
 
-.project-screenshots::before {
+/* Project Carousel Styles */
+.project-carousel {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--bg-lighter) 0%, var(--bg-white) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-carousel::before {
     content: '📸 Screenshots';
     position: absolute;
     top: -12px;
@@ -810,6 +812,146 @@ section {
     font-weight: 700;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
+    z-index: 5;
+}
+
+.project-carousel .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.project-carousel .carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.project-carousel .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-carousel .carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.project-carousel .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform var(--transition-slow);
+    border-radius: var(--radius-xl);
+    background: var(--bg-light);
+}
+
+.project-carousel .carousel-slide:hover img {
+    transform: scale(1.05);
+}
+
+.project-carousel .screenshot-caption {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    background: var(--bg-white);
+    border-top: 2px solid var(--bg-light);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.project-carousel .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(15, 98, 254, 0.2);
+    color: var(--primary-blue);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all var(--transition-base);
+    z-index: 10;
+    opacity: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-carousel:hover .carousel-btn {
+    opacity: 1;
+}
+
+.project-carousel .carousel-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(15, 98, 254, 0.3);
+}
+
+.project-carousel .carousel-prev {
+    left: 1rem;
+}
+
+.project-carousel .carousel-next {
+    right: 1rem;
+}
+
+.project-carousel .carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+}
+
+.project-carousel .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(15, 98, 254, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.project-carousel .dot:hover {
+    background: rgba(15, 98, 254, 0.5);
+    transform: scale(1.2);
+}
+
+.project-carousel .dot.active {
+    background: var(--primary-blue);
+    width: 24px;
+    border-radius: 6px;
+    border-color: rgba(15, 98, 254, 0.3);
 }
 
 .screenshot-item {

@@ -205,16 +205,29 @@ function closeModal() {
     }
 }
 
-// Hero Carousel Functionality
-let currentSlide = 0;
-let slides = [];
-let dots = [];
-let totalSlides = 0;
+// Project Carousel Functionality (Multiple Carousels)
+const projectCarousels = {};
 
-function updateCarousel() {
-    slides = document.querySelectorAll('.carousel-slide');
-    dots = document.querySelectorAll('.dot');
-    totalSlides = slides.length;
+function initProjectCarousel(carouselId) {
+    const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+    if (!carousel) return;
+    
+    projectCarousels[carouselId] = {
+        currentSlide: 0,
+        slides: carousel.querySelectorAll('.carousel-slide'),
+        dots: carousel.querySelectorAll('.dot'),
+        track: carousel.querySelector('.carousel-track')
+    };
+    
+    updateProjectCarousel(carouselId);
+}
+
+function updateProjectCarousel(carouselId) {
+    const carousel = projectCarousels[carouselId];
+    if (!carousel) return;
+    
+    const { slides, dots, currentSlide, track } = carousel;
+    const totalSlides = slides.length;
     
     if (totalSlides === 0) return;
     
@@ -229,32 +242,37 @@ function updateCarousel() {
     });
     
     // Update track position
-    const track = document.querySelector('.carousel-track');
     if (track) {
         track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 }
 
-function moveCarousel(direction) {
-    slides = document.querySelectorAll('.carousel-slide');
-    totalSlides = slides.length;
+function moveProjectCarousel(carouselId, direction) {
+    const carousel = projectCarousels[carouselId];
+    if (!carousel) return;
+    
+    const { slides } = carousel;
+    const totalSlides = slides.length;
     
     if (totalSlides === 0) return;
     
-    currentSlide += direction;
+    carousel.currentSlide += direction;
     
-    if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-    } else if (currentSlide >= totalSlides) {
-        currentSlide = 0;
+    if (carousel.currentSlide < 0) {
+        carousel.currentSlide = totalSlides - 1;
+    } else if (carousel.currentSlide >= totalSlides) {
+        carousel.currentSlide = 0;
     }
     
-    updateCarousel();
+    updateProjectCarousel(carouselId);
 }
 
-function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
+function goToProjectSlide(carouselId, index) {
+    const carousel = projectCarousels[carouselId];
+    if (!carousel) return;
+    
+    carousel.currentSlide = index;
+    updateProjectCarousel(carouselId);
 }
 
 // Auto-play carousel (optional)
@@ -271,95 +289,84 @@ function stopCarousel() {
     }
 }
 
-// Touch/Swipe support
-let touchStartX = 0;
-let touchEndX = 0;
-
-function initCarouselEvents() {
-    const carousel = document.querySelector('.hero-carousel');
-    if (!carousel) return;
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        stopCarousel();
-    }, { passive: true });
+// Touch/Swipe support for project carousels
+function initProjectCarouselEvents() {
+    const projectCarousels = document.querySelectorAll('.project-carousel');
     
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        startCarousel();
-    }, { passive: true });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50; // Minimum swipe distance
-        const diff = touchStartX - touchEndX;
+    projectCarousels.forEach(carousel => {
+        const carouselId = carousel.getAttribute('data-carousel');
+        if (!carouselId) return;
         
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - next slide
-                moveCarousel(1);
-            } else {
-                // Swipe right - previous slide
-                moveCarousel(-1);
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // Touch events
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe(carouselId);
+        }, { passive: true });
+        
+        function handleSwipe(id) {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    moveProjectCarousel(id, 1);
+                } else {
+                    moveProjectCarousel(id, -1);
+                }
             }
         }
-    }
-    
-    // Mouse drag support for desktop
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeft = 0;
-    
-    carousel.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - carousel.offsetLeft;
-        stopCarousel();
-    });
-    
-    carousel.addEventListener('mouseleave', () => {
-        isDragging = false;
-        startCarousel();
-    });
-    
-    carousel.addEventListener('mouseup', () => {
-        isDragging = false;
-        startCarousel();
-    });
-    
-    carousel.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 2;
         
-        if (Math.abs(walk) > 100) {
-            if (walk > 0) {
-                moveCarousel(-1);
-            } else {
-                moveCarousel(1);
-            }
+        // Mouse drag support
+        let isDragging = false;
+        let startX = 0;
+        
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - carousel.offsetLeft;
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
             isDragging = false;
-        }
+        });
+        
+        carousel.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            
+            if (Math.abs(walk) > 100) {
+                if (walk > 0) {
+                    moveProjectCarousel(carouselId, -1);
+                } else {
+                    moveProjectCarousel(carouselId, 1);
+                }
+                isDragging = false;
+            }
+        });
     });
-    
-    // Pause on hover
-    carousel.addEventListener('mouseenter', stopCarousel);
-    carousel.addEventListener('mouseleave', startCarousel);
 }
 
-// Initialize carousel immediately and on load
-function initCarousel() {
-    updateCarousel();
-    startCarousel();
-    initCarouselEvents();
+// Initialize all project carousels
+function initAllProjectCarousels() {
+    initProjectCarousel('fraud-detection');
+    initProjectCarousel('bank-marketing');
+    initProjectCarouselEvents();
 }
 
-// Try to initialize immediately if DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCarousel);
-} else {
-    initCarousel();
-}
-
-// Also initialize on window load as backup
-window.addEventListener('load', initCarousel);
+// Initialize on page load
+window.addEventListener('load', () => {
+    initAllProjectCarousels();
+});
 

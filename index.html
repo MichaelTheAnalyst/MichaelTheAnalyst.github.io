@@ -32,34 +32,6 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-showcase">
-                    <div class="hero-carousel">
-                        <div class="carousel-container">
-                            <div class="carousel-track">
-                                <div class="carousel-slide active">
-                                    <img src="assets/page 1.png" alt="Fraud Detection Dashboard API - Executive Pulse Dashboard" onclick="openModal('assets/page 1.png')">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/Page 2.png" alt="Fraud Detection Dashboard API - Command Center & Analytics" onclick="openModal('assets/Page 2.png')">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Analytics Dashboard - Overview" onclick="openModal('assets/bank-marketing/overview.png')">
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Next">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="goToSlide(0)"></span>
-                            <span class="dot" onclick="goToSlide(1)"></span>
-                            <span class="dot" onclick="goToSlide(2)"></span>
-                        </div>
-                    </div>
-                </div>
                 <div class="profile-image">
                     <img src="assets/profile pic.jpg" alt="Masood Nazari">
                 </div>
@@ -119,14 +91,28 @@
                     <p><strong>The Challenge:</strong> Financial institutions struggle with real-time fraud detection across millions of transactions, lacking explainable AI and predictive risk scoring capabilities.<br><br>
                     <strong>The Solution:</strong> Built production-ready FastAPI backend with ML monitoring, network analysis, and explainable AI. Features 18 interactive analytics tiles, processes 5M+ transactions, fraud network graph detection, and 24-hour predictive risk scoring.<br><br>
                     <strong>The Impact (Demonstrated):</strong> 3,700% ROI • Sub-second response times • Real-time fraud ring detection • Money mule account identification • Comprehensive model monitoring & drift detection.</p>
-                    <div class="project-screenshots">
-                        <div class="screenshot-item">
-                            <img src="assets/page 1.png" alt="Executive Pulse Dashboard - Real-time Fraud Monitoring" onclick="openModal('assets/page 1.png')">
-                            <p class="screenshot-caption">Executive Pulse Dashboard</p>
+                    <div class="project-screenshots project-carousel" data-carousel="fraud-detection">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="assets/page 1.png" alt="Executive Pulse Dashboard - Real-time Fraud Monitoring" onclick="openModal('assets/page 1.png')">
+                                    <p class="screenshot-caption">Executive Pulse Dashboard</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/Page 2.png" alt="Fraud Detection Command Center - Advanced Analytics" onclick="openModal('assets/Page 2.png')">
+                                    <p class="screenshot-caption">Command Center & Analytics</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="screenshot-item">
-                            <img src="assets/Page 2.png" alt="Fraud Detection Command Center - Advanced Analytics" onclick="openModal('assets/Page 2.png')">
-                            <p class="screenshot-caption">Command Center & Analytics</p>
+                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('fraud-detection', -1)" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('fraud-detection', 1)" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToProjectSlide('fraud-detection', 0)"></span>
+                            <span class="dot" onclick="goToProjectSlide('fraud-detection', 1)"></span>
                         </div>
                     </div>
                     <div class="project-tags">
@@ -152,30 +138,48 @@
                     <p><strong>The Challenge:</strong> Financial institutions need data-driven insights to optimize marketing campaign effectiveness, but lack integrated analytics platforms for pre-call customer prioritization and strategy optimization.<br><br>
                     <strong>The Solution:</strong> Built dual-interface analytics platform (Streamlit + React/Flask) featuring 6 ML algorithms for subscription prediction, K-Means customer segmentation, contact optimization analysis, and economic impact assessment with premium banking UI.<br><br>
                     <strong>The Impact (Demonstrated):</strong> 90.5%+ ML accuracy • Pre-call customer scoring • 15-20% conversion improvement through segmentation • Optimal 1-2 contact frequency • 41,188 customer analysis • Full-stack ML platform.</p>
-                    <div class="project-screenshots">
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Dashboard - Overview" onclick="openModal('assets/bank-marketing/overview.png')">
-                            <p class="screenshot-caption">Overview Dashboard</p>
+                    <div class="project-screenshots project-carousel" data-carousel="bank-marketing">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Dashboard - Overview" onclick="openModal('assets/bank-marketing/overview.png')">
+                                    <p class="screenshot-caption">Overview Dashboard</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/bank-marketing/FI.png" alt="Feature Importance Analysis" onclick="openModal('assets/bank-marketing/FI.png')">
+                                    <p class="screenshot-caption">Feature Importance</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/bank-marketing/PM.png" alt="Predictive Models Performance" onclick="openModal('assets/bank-marketing/PM.png')">
+                                    <p class="screenshot-caption">Predictive Models</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/bank-marketing/CS.png" alt="Customer Segmentation Analysis" onclick="openModal('assets/bank-marketing/CS.png')">
+                                    <p class="screenshot-caption">Customer Segmentation</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/bank-marketing/CO.png" alt="Contact Optimization Analysis" onclick="openModal('assets/bank-marketing/CO.png')">
+                                    <p class="screenshot-caption">Contact Optimization</p>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/bank-marketing/EI.png" alt="Economic Impact Analysis" onclick="openModal('assets/bank-marketing/EI.png')">
+                                    <p class="screenshot-caption">Economic Impact</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/FI.png" alt="Feature Importance Analysis" onclick="openModal('assets/bank-marketing/FI.png')">
-                            <p class="screenshot-caption">Feature Importance</p>
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/PM.png" alt="Predictive Models Performance" onclick="openModal('assets/bank-marketing/PM.png')">
-                            <p class="screenshot-caption">Predictive Models</p>
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/CS.png" alt="Customer Segmentation Analysis" onclick="openModal('assets/bank-marketing/CS.png')">
-                            <p class="screenshot-caption">Customer Segmentation</p>
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/CO.png" alt="Contact Optimization Analysis" onclick="openModal('assets/bank-marketing/CO.png')">
-                            <p class="screenshot-caption">Contact Optimization</p>
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/bank-marketing/EI.png" alt="Economic Impact Analysis" onclick="openModal('assets/bank-marketing/EI.png')">
-                            <p class="screenshot-caption">Economic Impact</p>
+                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('bank-marketing', -1)" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('bank-marketing', 1)" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToProjectSlide('bank-marketing', 0)"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 1)"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 2)"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 3)"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 4)"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 5)"></span>
                         </div>
                     </div>
                     <div class="project-tags">
