@@ -174,12 +174,22 @@ function openModal(imageSrc, imgElement) {
     if (!clickedImg) {
         clickedImg = document.querySelector(`img[src="${imageSrc}"]`);
     }
-    const carousel = clickedImg?.closest('.project-carousel');
     
-    if (carousel) {
-        modalCarouselId = carousel.getAttribute('data-carousel');
-        const slides = carousel.querySelectorAll('.carousel-slide img');
+    // Check for project carousel
+    const projectCarousel = clickedImg?.closest('.project-carousel');
+    // Check for certificate carousel
+    const certificateTrack = clickedImg?.closest('.certifications-track');
+    
+    if (projectCarousel) {
+        modalCarouselId = projectCarousel.getAttribute('data-carousel');
+        const slides = projectCarousel.querySelectorAll('.carousel-slide img');
         modalImages = Array.from(slides).map(img => img.src);
+        currentModalIndex = modalImages.indexOf(imageSrc);
+    } else if (certificateTrack) {
+        // Handle certificate carousel
+        modalCarouselId = 'certifications';
+        const certificateCards = certificateTrack.querySelectorAll('.certificate-card img');
+        modalImages = Array.from(certificateCards).map(img => img.src);
         currentModalIndex = modalImages.indexOf(imageSrc);
     } else {
         // Fallback for non-carousel images
