@@ -179,6 +179,8 @@ function openModal(imageSrc, imgElement) {
     const projectCarousel = clickedImg?.closest('.project-carousel');
     // Check for certificate carousel
     const certificateTrack = clickedImg?.closest('.certifications-track');
+    // Check for recommendation images
+    const isRecommendation = imageSrc.includes('rec1.png') || imageSrc.includes('rec2.png') || imageSrc.includes('rec3.png');
     
     if (projectCarousel) {
         modalCarouselId = projectCarousel.getAttribute('data-carousel');
@@ -191,6 +193,18 @@ function openModal(imageSrc, imgElement) {
         const certificateCards = certificateTrack.querySelectorAll('.certificate-card img');
         modalImages = Array.from(certificateCards).map(img => img.src);
         currentModalIndex = modalImages.indexOf(imageSrc);
+    } else if (isRecommendation) {
+        // Handle recommendation images - load all 3 recommendations
+        modalCarouselId = 'recommendations';
+        modalImages = ['assets/rec1.png', 'assets/rec2.png', 'assets/rec3.png'];
+        currentModalIndex = modalImages.indexOf(imageSrc);
+        // If imageSrc not found (e.g., from button click), find by index
+        if (currentModalIndex === -1) {
+            if (imageSrc.includes('rec1.png')) currentModalIndex = 0;
+            else if (imageSrc.includes('rec2.png')) currentModalIndex = 1;
+            else if (imageSrc.includes('rec3.png')) currentModalIndex = 2;
+            else currentModalIndex = 0;
+        }
     } else {
         // Fallback for non-carousel images
         modalImages = [imageSrc];
