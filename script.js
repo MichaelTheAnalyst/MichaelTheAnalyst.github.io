@@ -2,14 +2,29 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('active');
+    });
+    
+    // Keyboard support for hamburger menu
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            hamburger.click();
+        }
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        if (hamburger) {
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
@@ -1120,6 +1135,80 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (rejectBtn) {
         rejectBtn.addEventListener('click', () => handleConsent(false));
+    }
+    
+    // ===================================
+    // KEYBOARD NAVIGATION ENHANCEMENTS
+    // ===================================
+    // Make clickable images keyboard accessible
+    document.querySelectorAll('img[role="button"]').forEach(img => {
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                img.click();
+            }
+        });
+    });
+    
+    // Add keyboard support for carousel dots
+    document.querySelectorAll('.dot, .recommendation-dot, .certificate-dot').forEach(dot => {
+        dot.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                dot.click();
+            }
+        });
+    });
+    
+    // Update aria-selected when dots are clicked
+    document.querySelectorAll('.carousel-dots, .recommendation-carousel-dots, .certificate-carousel-dots').forEach(container => {
+        const dots = container.querySelectorAll('[role="tab"]');
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => {
+                    d.setAttribute('aria-selected', 'false');
+                    d.classList.remove('active');
+                });
+                dot.setAttribute('aria-selected', 'true');
+                dot.classList.add('active');
+            });
+        });
+    });
+    
+    // ===================================
+    // CONTACT FORM HANDLING
+    // ===================================
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim() || 'Portfolio Contact Form';
+            const message = document.getElementById('contactMessage').value.trim();
+            
+            // Create mailto link
+            const mailtoSubject = encodeURIComponent(subject);
+            const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const mailtoLink = `mailto:Michaelnazary@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message (optional)
+            const submitBtn = contactForm.querySelector('.form-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Message Sent!';
+            submitBtn.style.background = 'var(--accent-teal)';
+            
+            // Reset form after a delay
+            setTimeout(() => {
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+            }, 3000);
+        });
     }
 });
 

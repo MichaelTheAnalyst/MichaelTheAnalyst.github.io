@@ -160,41 +160,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <div class="nav-brand">Masood Nazari</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#recommendations" class="nav-link">Recommendations</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <div class="nav-brand" aria-label="Masood Nazari - Portfolio Home">Masood Nazari</div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-link" role="menuitem" aria-label="Go to home section">Home</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem" aria-label="Go to about section">About</a></li>
+                <li role="none"><a href="#projects" class="nav-link" role="menuitem" aria-label="Go to projects section">Projects</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem" aria-label="Go to skills section">Skills</a></li>
+                <li role="none"><a href="#recommendations" class="nav-link" role="menuitem" aria-label="Go to recommendations section">Recommendations</a></li>
+                <li role="none"><a href="#certifications" class="nav-link" role="menuitem" aria-label="Go to certifications section">Certifications</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem" aria-label="Go to contact section">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <main id="main-content" role="main">
+    <section id="home" class="hero" aria-label="Introduction">
         <div class="container">
             <div class="hero-content">
                 <div class="profile-image">
-                    <img src="assets/profile pic.jpg" alt="Masood Nazari" width="200" height="200">
+                    <img src="assets/profile pic.jpg" alt="Masood Nazari - Data & BI Analyst" width="200" height="200">
                 </div>
                 <h1 class="hero-title">Hi, I'm <span class="highlight">Masood Nazari</span></h1>
                 <p class="hero-subtitle">Data & BI Analyst | Healthcare & Fintech | AI & Analytics Engineering</p>
                 <p class="hero-description">Transforming complex data into actionable insights through automation, advanced analytics, and AI-powered solutions</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="Masood Nazari CV.docx" download class="btn btn-secondary">
-                        <i class="fas fa-download"></i> Download CV
+                    <a href="#projects" class="btn btn-primary" aria-label="View portfolio projects">View My Work</a>
+                    <a href="Masood Nazari CV.docx" download class="btn btn-secondary" aria-label="Download Masood Nazari CV as Word document">
+                        <i class="fas fa-download" aria-hidden="true"></i> Download CV
                     </a>
                 </div>
                 <p class="hero-domains">Featured domains: NHS research, clinical trials, fintech analytics, fraud detection.</p>
@@ -214,9 +218,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about" aria-labelledby="about-heading">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" id="about-heading">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>I'm a Business Intelligence Analyst at the University of Southampton with a focus on healthcare analytics and clinical research data. I hold an <strong>MSc in Data & Decision Analytics from the University of Southampton, awarded with Distinction</strong>, and had the honour of receiving the <strong>Presidential Scholarship for academic excellence</strong>. I specialise in transforming complex datasets into clear, actionable insights that support strategic decision-making.</p>
@@ -230,40 +234,40 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects" aria-labelledby="projects-heading">
         <div class="container">
-            <h2 class="section-title">Proven Results: Projects That Delivered Real ROI</h2>
+            <h2 class="section-title" id="projects-heading">Proven Results: Projects That Delivered Real ROI</h2>
             <div class="projects-grid" id="projects-container">
                 <!-- Real Projects from GitHub -->
                 <!-- 1. Fraud Detection Dashboard API - Fintech/AI "Wow" Factor -->
-                <div class="project-card">
-                    <div class="project-icon">
+                <article class="project-card" role="article" aria-labelledby="fraud-detection-title">
+                    <div class="project-icon" aria-hidden="true">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Fraud Detection Dashboard API</h3>
+                    <h3 id="fraud-detection-title">Fraud Detection Dashboard API</h3>
                     <p><strong>The Challenge:</strong> Financial institutions struggle with real-time fraud detection across millions of transactions, lacking explainable AI and predictive risk scoring capabilities.<br><br>
                     <strong>The Solution:</strong> Built production-ready FastAPI backend with ML monitoring, network analysis, and explainable AI. Features 18 interactive analytics tiles, processes 5M+ transactions, fraud network graph detection, and 24-hour predictive risk scoring.<br><br>
                     <strong>The Impact (Demonstrated):</strong> 3,700% ROI • Sub-second response times • Real-time fraud ring detection • Money mule account identification • Comprehensive model monitoring & drift detection.</p>
-                    <div class="project-screenshots project-carousel" data-carousel="fraud-detection">
+                    <div class="project-screenshots project-carousel" data-carousel="fraud-detection" role="region" aria-label="Fraud Detection Dashboard API screenshots">
                         <div class="carousel-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/page 1.png" alt="Executive Pulse Dashboard - Real-time Fraud Monitoring" loading="lazy" onclick="openModal('assets/page 1.png', this)">
+                                    <img src="assets/page 1.png" alt="Fraud Detection Dashboard - Executive Pulse showing real-time fraud monitoring metrics, transaction volume, and risk scores" loading="lazy" onclick="openModal('assets/page 1.png', this)" role="button" tabindex="0" aria-label="View Fraud Detection Dashboard screenshot 1 in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Page 2.png" alt="Fraud Detection Command Center - Advanced Analytics" loading="lazy" onclick="openModal('assets/Page 2.png', this)">
+                                    <img src="assets/Page 2.png" alt="Fraud Detection Dashboard - Command Center with advanced analytics, fraud network graphs, and predictive risk scoring" loading="lazy" onclick="openModal('assets/Page 2.png', this)" role="button" tabindex="0" aria-label="View Fraud Detection Dashboard screenshot 2 in full size">
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('fraud-detection', -1)" aria-label="Previous">
-                            <i class="fas fa-chevron-left"></i>
+                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('fraud-detection', -1)" aria-label="Previous Fraud Detection screenshot" type="button">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
                         </button>
-                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('fraud-detection', 1)" aria-label="Next">
-                            <i class="fas fa-chevron-right"></i>
+                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('fraud-detection', 1)" aria-label="Next Fraud Detection screenshot" type="button">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
                         </button>
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="goToProjectSlide('fraud-detection', 0)"></span>
-                            <span class="dot" onclick="goToProjectSlide('fraud-detection', 1)"></span>
+                        <div class="carousel-dots" role="tablist" aria-label="Fraud Detection Dashboard screenshot navigation">
+                            <span class="dot active" onclick="goToProjectSlide('fraud-detection', 0)" role="tab" aria-label="Go to screenshot 1" tabindex="0" aria-selected="true"></span>
+                            <span class="dot" onclick="goToProjectSlide('fraud-detection', 1)" role="tab" aria-label="Go to screenshot 2" tabindex="0" aria-selected="false"></span>
                         </div>
                     </div>
                     <div class="project-tags">
@@ -281,50 +285,50 @@
                 </div>
 
                 <!-- 2. Bank Marketing Analytics Dashboard - Full-Stack DS + Fintech -->
-                <div class="project-card">
-                    <div class="project-icon">
+                <article class="project-card" role="article" aria-labelledby="bank-marketing-title">
+                    <div class="project-icon" aria-hidden="true">
                         <i class="fas fa-university"></i>
                     </div>
-                    <h3>Bank Marketing Analytics Dashboard</h3>
+                    <h3 id="bank-marketing-title">Bank Marketing Analytics Dashboard</h3>
                     <p><strong>The Challenge:</strong> Financial institutions need data-driven insights to optimise marketing campaign effectiveness, but lack integrated analytics platforms for pre-call customer prioritisation and strategy optimisation.<br><br>
                     <strong>The Solution:</strong> Built dual-interface analytics platform (Streamlit + React/Flask) featuring 6 ML algorithms for subscription prediction, K-Means customer segmentation, contact optimisation analysis, and economic impact assessment with premium banking UI.<br><br>
                     <strong>The Impact (Demonstrated):</strong> 90.5%+ ML accuracy • Pre-call customer scoring • 15-20% conversion improvement through segmentation • Optimal 1-2 contact frequency • 41,188 customer analysis • Full-stack ML platform.</p>
-                    <div class="project-screenshots project-carousel" data-carousel="bank-marketing">
+                    <div class="project-screenshots project-carousel" data-carousel="bank-marketing" role="region" aria-label="Bank Marketing Analytics Dashboard screenshots">
                         <div class="carousel-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Dashboard - Overview" loading="lazy" onclick="openModal('assets/bank-marketing/overview.png', this)">
+                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Analytics Dashboard - Overview page showing key performance indicators, campaign metrics, and customer analytics" loading="lazy" onclick="openModal('assets/bank-marketing/overview.png', this)" role="button" tabindex="0" aria-label="View Bank Marketing Dashboard overview in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/FI.png" alt="Feature Importance Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/FI.png', this)">
+                                    <img src="assets/bank-marketing/FI.png" alt="Bank Marketing Dashboard - Feature Importance analysis showing which customer attributes most influence subscription predictions" loading="lazy" onclick="openModal('assets/bank-marketing/FI.png', this)" role="button" tabindex="0" aria-label="View Feature Importance analysis in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/PM.png" alt="Predictive Models Performance" loading="lazy" onclick="openModal('assets/bank-marketing/PM.png', this)">
+                                    <img src="assets/bank-marketing/PM.png" alt="Bank Marketing Dashboard - Predictive Models Performance comparison showing accuracy metrics across different machine learning algorithms" loading="lazy" onclick="openModal('assets/bank-marketing/PM.png', this)" role="button" tabindex="0" aria-label="View Predictive Models Performance in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/CS.png" alt="Customer Segmentation Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/CS.png', this)">
+                                    <img src="assets/bank-marketing/CS.png" alt="Bank Marketing Dashboard - Customer Segmentation analysis using K-Means clustering to identify distinct customer groups" loading="lazy" onclick="openModal('assets/bank-marketing/CS.png', this)" role="button" tabindex="0" aria-label="View Customer Segmentation analysis in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/CO.png" alt="Contact Optimization Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/CO.png', this)">
+                                    <img src="assets/bank-marketing/CO.png" alt="Bank Marketing Dashboard - Contact Optimisation analysis showing optimal contact strategies and economic impact" loading="lazy" onclick="openModal('assets/bank-marketing/CO.png', this)" role="button" tabindex="0" aria-label="View Contact Optimisation analysis in full size">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/EI.png" alt="Economic Impact Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/EI.png', this)">
+                                    <img src="assets/bank-marketing/EI.png" alt="Bank Marketing Dashboard - Economic Impact assessment showing revenue projections and campaign ROI analysis" loading="lazy" onclick="openModal('assets/bank-marketing/EI.png', this)" role="button" tabindex="0" aria-label="View Economic Impact analysis in full size">
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('bank-marketing', -1)" aria-label="Previous">
-                            <i class="fas fa-chevron-left"></i>
+                        <button class="carousel-btn carousel-prev" onclick="moveProjectCarousel('bank-marketing', -1)" aria-label="Previous Bank Marketing screenshot" type="button">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
                         </button>
-                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('bank-marketing', 1)" aria-label="Next">
-                            <i class="fas fa-chevron-right"></i>
+                        <button class="carousel-btn carousel-next" onclick="moveProjectCarousel('bank-marketing', 1)" aria-label="Next Bank Marketing screenshot" type="button">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
                         </button>
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="goToProjectSlide('bank-marketing', 0)"></span>
-                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 1)"></span>
-                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 2)"></span>
-                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 3)"></span>
-                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 4)"></span>
-                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 5)"></span>
+                        <div class="carousel-dots" role="tablist" aria-label="Bank Marketing Dashboard screenshot navigation">
+                            <span class="dot active" onclick="goToProjectSlide('bank-marketing', 0)" role="tab" aria-label="Go to overview screenshot" tabindex="0" aria-selected="true"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 1)" role="tab" aria-label="Go to feature importance screenshot" tabindex="0" aria-selected="false"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 2)" role="tab" aria-label="Go to predictive models screenshot" tabindex="0" aria-selected="false"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 3)" role="tab" aria-label="Go to customer segmentation screenshot" tabindex="0" aria-selected="false"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 4)" role="tab" aria-label="Go to contact optimisation screenshot" tabindex="0" aria-selected="false"></span>
+                            <span class="dot" onclick="goToProjectSlide('bank-marketing', 5)" role="tab" aria-label="Go to economic impact screenshot" tabindex="0" aria-selected="false"></span>
                         </div>
                     </div>
                     <div class="project-tags">
@@ -342,7 +346,7 @@
                 </div>
 
                 <!-- 3. NIHR Research Intelligence Dashboard - Healthcare BI + ROI -->
-                <div class="project-card">
+                <article class="project-card" role="article" aria-labelledby="nihr-title">
                     <div class="project-icon">
                         <i class="fas fa-microscope"></i>
                     </div>
@@ -367,7 +371,7 @@
                 </div>
 
                 <!-- 4. BioVision Analytics Hub - ML + Geospatial -->
-                <div class="project-card">
+                <article class="project-card" role="article" aria-labelledby="biovision-title">
                     <div class="project-icon">
                         <i class="fas fa-satellite"></i>
                     </div>
@@ -447,9 +451,9 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills" aria-labelledby="skills-heading">
         <div class="container">
-            <h2 class="section-title">My Arsenal: Tools That Deliver Results</h2>
+            <h2 class="section-title" id="skills-heading">My Arsenal: Tools That Deliver Results</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programming Languages</h3>
@@ -517,9 +521,9 @@
     </section>
 
     <!-- Recommendations Section -->
-    <section id="recommendations" class="recommendations">
+    <section id="recommendations" class="recommendations" aria-labelledby="recommendations-heading">
         <div class="container">
-            <h2 class="section-title">What Colleagues & Mentors Say</h2>
+            <h2 class="section-title" id="recommendations-heading">What Colleagues & Mentors Say</h2>
             <p class="recommendations-subtitle">The question isn't whether I deliver results, it's how quickly I can transform your data challenges into competitive advantages.</p>
             <div class="recommendations-carousel-wrapper">
                 <div class="recommendations-carousel" data-carousel="recommendations">
@@ -544,8 +548,8 @@
                                         <p class="recommendation-relationship">Worked together at SCTU</p>
                                     </div>
                                 </div>
-                                <button class="view-recommendation-btn" onclick="openModal('assets/rec1.png', null)">
-                                    <i class="fas fa-expand"></i>
+                                <button class="view-recommendation-btn" onclick="openModal('assets/rec1.png', null)" aria-label="View full recommendation letter from Dr. Dan Muller" type="button">
+                                    <i class="fas fa-expand" aria-hidden="true"></i>
                                     <span>View Full Recommendation</span>
                                 </button>
                             </div>
@@ -571,8 +575,8 @@
                                         <p class="recommendation-relationship">Former Instructor</p>
                                     </div>
                                 </div>
-                                <button class="view-recommendation-btn" onclick="openModal('assets/rec2.png', null)">
-                                    <i class="fas fa-expand"></i>
+                                <button class="view-recommendation-btn" onclick="openModal('assets/rec2.png', null)" aria-label="View full recommendation letter from Dr. Gevorg Stepanyan" type="button">
+                                    <i class="fas fa-expand" aria-hidden="true"></i>
                                     <span>View Full Recommendation</span>
                                 </button>
                             </div>
@@ -598,23 +602,23 @@
                                         <p class="recommendation-relationship">Former Direct Report</p>
                                     </div>
                                 </div>
-                                <button class="view-recommendation-btn" onclick="openModal('assets/rec3.png', null)">
-                                    <i class="fas fa-expand"></i>
+                                <button class="view-recommendation-btn" onclick="openModal('assets/rec3.png', null)" aria-label="View full recommendation letter from Zohreh Safaei" type="button">
+                                    <i class="fas fa-expand" aria-hidden="true"></i>
                                     <span>View Full Recommendation</span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <button class="recommendation-carousel-btn recommendation-prev" onclick="moveRecommendationCarousel(-1)" aria-label="Previous">
-                        <i class="fas fa-chevron-left"></i>
+                    <button class="recommendation-carousel-btn recommendation-prev" onclick="moveRecommendationCarousel(-1)" aria-label="Previous recommendation" type="button">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
                     </button>
-                    <button class="recommendation-carousel-btn recommendation-next" onclick="moveRecommendationCarousel(1)" aria-label="Next">
-                        <i class="fas fa-chevron-right"></i>
+                    <button class="recommendation-carousel-btn recommendation-next" onclick="moveRecommendationCarousel(1)" aria-label="Next recommendation" type="button">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
                     </button>
-                    <div class="recommendation-carousel-dots">
-                        <span class="recommendation-dot active" onclick="goToRecommendationSlide(0)"></span>
-                        <span class="recommendation-dot" onclick="goToRecommendationSlide(1)"></span>
-                        <span class="recommendation-dot" onclick="goToRecommendationSlide(2)"></span>
+                    <div class="recommendation-carousel-dots" role="tablist" aria-label="Recommendation navigation">
+                        <span class="recommendation-dot active" onclick="goToRecommendationSlide(0)" role="tab" aria-label="Go to recommendation 1" tabindex="0" aria-selected="true"></span>
+                        <span class="recommendation-dot" onclick="goToRecommendationSlide(1)" role="tab" aria-label="Go to recommendation 2" tabindex="0" aria-selected="false"></span>
+                        <span class="recommendation-dot" onclick="goToRecommendationSlide(2)" role="tab" aria-label="Go to recommendation 3" tabindex="0" aria-selected="false"></span>
                     </div>
                 </div>
             </div>
@@ -622,16 +626,16 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
+    <section id="certifications" class="certifications" aria-labelledby="certifications-heading">
         <div class="container">
-            <h2 class="section-title">Continuous Learning, Measurable Results</h2>
+            <h2 class="section-title" id="certifications-heading">Continuous Learning, Measurable Results</h2>
             <p class="certifications-subtitle">The question isn't whether I stay current with industry standards, it's how quickly I can apply new techniques to solve your challenges. Here's proof of my commitment to continuous improvement.</p>
             <div class="certifications-carousel-wrapper">
                 <div class="certifications-carousel" data-carousel="certifications">
                     <div class="certifications-track">
-                        <div class="certificate-card">
+                        <div class="certificate-card" role="article" aria-label="Power BI Essential Training Certificate">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1662355840498.png" alt="Power BI Essential Training Certificate" loading="lazy" onclick="openModal('assets/cert/1662355840498.png', this)">
+                                <img src="assets/cert/1662355840498.png" alt="LinkedIn Learning certificate for Power BI Essential Training completed September 2022" loading="lazy" onclick="openModal('assets/cert/1662355840498.png', this)" role="button" tabindex="0" aria-label="View Power BI Essential Training certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Power BI Essential Training</h3>
@@ -640,9 +644,9 @@
                             </div>
                         </div>
 
-                        <div class="certificate-card">
+                        <div class="certificate-card" role="article" aria-label="Statistics Foundations 1: The Basics Certificate">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696600478231.jpg" alt="Statistics Foundations 1: The Basics Certificate" loading="lazy" onclick="openModal('assets/cert/1696600478231.jpg', this)">
+                                <img src="assets/cert/1696600478231.jpg" alt="LinkedIn Learning certificate for Statistics Foundations 1: The Basics completed October 2023" loading="lazy" onclick="openModal('assets/cert/1696600478231.jpg', this)" role="button" tabindex="0" aria-label="View Statistics Foundations 1 certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 1: The Basics</h3>
@@ -651,9 +655,9 @@
                             </div>
                         </div>
 
-                        <div class="certificate-card">
+                        <div class="certificate-card" role="article" aria-label="Statistics Foundations 2: Probability Certificate">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696634068993.jpg" alt="Statistics Foundations 2: Probability Certificate" loading="lazy" onclick="openModal('assets/cert/1696634068993.jpg', this)">
+                                <img src="assets/cert/1696634068993.jpg" alt="LinkedIn Learning certificate for Statistics Foundations 2: Probability completed October 2023" loading="lazy" onclick="openModal('assets/cert/1696634068993.jpg', this)" role="button" tabindex="0" aria-label="View Statistics Foundations 2 certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 2: Probability</h3>
@@ -664,7 +668,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696723996904.jpg" alt="Statistics Foundations 3: Using Data Sets Certificate" loading="lazy" onclick="openModal('assets/cert/1696723996904.jpg', this)">
+                                <img src="assets/cert/1696723996904.jpg" alt="LinkedIn Learning certificate for Statistics Foundations 3: Using Data Sets completed October 2023" loading="lazy" onclick="openModal('assets/cert/1696723996904.jpg', this)" role="button" tabindex="0" aria-label="View Statistics Foundations 3 certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 3: Using Data Sets</h3>
@@ -675,7 +679,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1697534650937.jpg" alt="Regression Analysis Fundamentals Certificate" loading="lazy" onclick="openModal('assets/cert/1697534650937.jpg', this)">
+                                <img src="assets/cert/1697534650937.jpg" alt="LinkedIn Learning certificate for Regression Analysis Fundamentals completed October 2023" loading="lazy" onclick="openModal('assets/cert/1697534650937.jpg', this)" role="button" tabindex="0" aria-label="View Regression Analysis Fundamentals certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Regression Analysis Fundamentals</h3>
@@ -686,7 +690,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1699285180103.jpg" alt="Statistics Foundations 4: Advanced Topics Certificate" loading="lazy" onclick="openModal('assets/cert/1699285180103.jpg', this)">
+                                <img src="assets/cert/1699285180103.jpg" alt="LinkedIn Learning certificate for Statistics Foundations 4: Advanced Topics completed November 2023" loading="lazy" onclick="openModal('assets/cert/1699285180103.jpg', this)" role="button" tabindex="0" aria-label="View Statistics Foundations 4 certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 4: Advanced Topics</h3>
@@ -697,7 +701,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1699870327904.jpg" alt="Artificial Intelligence Foundations: Thinking Machines Certificate" loading="lazy" onclick="openModal('assets/cert/1699870327904.jpg', this)">
+                                <img src="assets/cert/1699870327904.jpg" alt="LinkedIn Learning certificate for Artificial Intelligence Foundations: Thinking Machines completed November 2023" loading="lazy" onclick="openModal('assets/cert/1699870327904.jpg', this)" role="button" tabindex="0" aria-label="View AI Foundations certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">AI Foundations: Thinking Machines</h3>
@@ -708,7 +712,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1700519876627.jpg" alt="Machine Learning Foundations: Linear Algebra Certificate" loading="lazy" onclick="openModal('assets/cert/1700519876627.jpg', this)">
+                                <img src="assets/cert/1700519876627.jpg" alt="LinkedIn Learning certificate for Machine Learning Foundations: Linear Algebra completed November 2023" loading="lazy" onclick="openModal('assets/cert/1700519876627.jpg', this)" role="button" tabindex="0" aria-label="View ML Foundations Linear Algebra certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">ML Foundations: Linear Algebra</h3>
@@ -719,7 +723,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1701366945663.jpg" alt="Cleaning Bad Data in R Certificate" loading="lazy" onclick="openModal('assets/cert/1701366945663.jpg', this)">
+                                <img src="assets/cert/1701366945663.jpg" alt="LinkedIn Learning certificate for Cleaning Bad Data in R completed November 2023" loading="lazy" onclick="openModal('assets/cert/1701366945663.jpg', this)" role="button" tabindex="0" aria-label="View Cleaning Bad Data in R certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Cleaning Bad Data in R</h3>
@@ -730,7 +734,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1715159185436.jpg" alt="Building and Deploying Deep Learning Applications with TensorFlow Certificate" loading="lazy" onclick="openModal('assets/cert/1715159185436.jpg', this)">
+                                <img src="assets/cert/1715159185436.jpg" alt="LinkedIn Learning certificate for Building and Deploying Deep Learning Applications with TensorFlow completed May 2024" loading="lazy" onclick="openModal('assets/cert/1715159185436.jpg', this)" role="button" tabindex="0" aria-label="View Deep Learning with TensorFlow certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Deep Learning with TensorFlow</h3>
@@ -741,7 +745,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1718191059612.jpg" alt="Learning Amazon SageMaker Certificate" loading="lazy" onclick="openModal('assets/cert/1718191059612.jpg', this)">
+                                <img src="assets/cert/1718191059612.jpg" alt="LinkedIn Learning certificate for Learning Amazon SageMaker completed June 2024" loading="lazy" onclick="openModal('assets/cert/1718191059612.jpg', this)" role="button" tabindex="0" aria-label="View Amazon SageMaker certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Learning Amazon SageMaker</h3>
@@ -752,7 +756,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg" alt="SQL for Data Science Certificate" loading="lazy" onclick="openModal('assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg', this)">
+                                <img src="assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg" alt="UC Davis via Coursera certificate for SQL for Data Science completed November 2022" loading="lazy" onclick="openModal('assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg', this)" role="button" tabindex="0" aria-label="View SQL for Data Science certificate in full size">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">SQL for Data Science</h3>
@@ -761,25 +765,25 @@
                             </div>
                         </div>
                     </div>
-                    <button class="certificate-carousel-btn certificate-prev" onclick="moveCertificateCarousel(-1)" aria-label="Previous">
-                        <i class="fas fa-chevron-left"></i>
+                    <button class="certificate-carousel-btn certificate-prev" onclick="moveCertificateCarousel(-1)" aria-label="Previous certificate" type="button">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
                     </button>
-                    <button class="certificate-carousel-btn certificate-next" onclick="moveCertificateCarousel(1)" aria-label="Next">
-                        <i class="fas fa-chevron-right"></i>
+                    <button class="certificate-carousel-btn certificate-next" onclick="moveCertificateCarousel(1)" aria-label="Next certificate" type="button">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
                     </button>
-                    <div class="certificate-carousel-dots">
-                        <span class="certificate-dot active" onclick="goToCertificateSlide(0)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(1)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(2)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(3)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(4)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(5)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(6)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(7)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(8)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(9)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(10)"></span>
-                        <span class="certificate-dot" onclick="goToCertificateSlide(11)"></span>
+                    <div class="certificate-carousel-dots" role="tablist" aria-label="Certificate navigation">
+                        <span class="certificate-dot active" onclick="goToCertificateSlide(0)" role="tab" aria-label="Go to certificate 1" tabindex="0" aria-selected="true"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(1)" role="tab" aria-label="Go to certificate 2" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(2)" role="tab" aria-label="Go to certificate 3" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(3)" role="tab" aria-label="Go to certificate 4" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(4)" role="tab" aria-label="Go to certificate 5" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(5)" role="tab" aria-label="Go to certificate 6" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(6)" role="tab" aria-label="Go to certificate 7" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(7)" role="tab" aria-label="Go to certificate 8" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(8)" role="tab" aria-label="Go to certificate 9" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(9)" role="tab" aria-label="Go to certificate 10" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(10)" role="tab" aria-label="Go to certificate 11" tabindex="0" aria-selected="false"></span>
+                        <span class="certificate-dot" onclick="goToCertificateSlide(11)" role="tab" aria-label="Go to certificate 12" tabindex="0" aria-selected="false"></span>
                     </div>
                 </div>
             </div>
@@ -787,35 +791,77 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" id="contact-heading">Get In Touch</h2>
             <div class="contact-content">
                 <p class="contact-text">I'm always interested in discussing new opportunities, projects, or collaborations in healthcare analytics and business intelligence. Whether you're looking for a BI Analyst, have questions about my work, or just want to connect, feel free to reach out.</p>
+                
+                <!-- Contact Methods Grid -->
                 <div class="contact-methods">
-                    <a href="mailto:M.Nazari@soton.ac.uk" class="contact-method">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:M.Nazari@soton.ac.uk" class="contact-method" aria-label="Send email to M.Nazari@soton.ac.uk">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                         <span>M.Nazari@soton.ac.uk</span>
                     </a>
-                    <a href="mailto:Michaelnazary@gmail.com" class="contact-method">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:Michaelnazary@gmail.com" class="contact-method" aria-label="Send email to Michaelnazary@gmail.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                         <span>Michaelnazary@gmail.com</span>
                     </a>
-                    <a href="https://github.com/MichaelTheAnalyst" target="_blank" class="contact-method">
-                        <i class="fab fa-github"></i>
+                    <a href="tel:+447938935499" class="contact-method" aria-label="Call phone number 07938935499">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <span>+44 7938 935499</span>
+                    </a>
+                    <a href="https://calendly.com/michaeltheanalyst" target="_blank" class="contact-method contact-method-calendly" aria-label="Book a meeting via Calendly (opens in new tab)">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                        <span>Schedule a Meeting</span>
+                    </a>
+                    <div class="contact-method contact-method-location" aria-label="Location: Southampton, UK">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span>Southampton, UK</span>
+                    </div>
+                    <a href="https://github.com/MichaelTheAnalyst" target="_blank" class="contact-method" aria-label="Visit GitHub profile (opens in new tab)">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                         <span>GitHub Profile</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/masood-nazari" target="_blank" class="contact-method">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/masood-nazari" target="_blank" class="contact-method" aria-label="Visit LinkedIn profile (opens in new tab)">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                         <span>LinkedIn Profile</span>
                     </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3 class="contact-form-title">Send a Message</h3>
+                    <form id="contactForm" class="contact-form" aria-label="Contact form">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="name" class="form-input" required aria-required="true" aria-label="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Email <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="email" class="form-input" required aria-required="true" aria-label="Your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject" class="form-label">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" class="form-input" aria-label="Message subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage" class="form-label">Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="message" class="form-textarea" rows="6" required aria-required="true" aria-label="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit" aria-label="Submit contact form">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </button>
+                        <p class="form-note">Note: This form uses mailto. For production, integrate with a backend service or email API.</p>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Masood Nazari. All rights reserved.</p>
             <p>Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
