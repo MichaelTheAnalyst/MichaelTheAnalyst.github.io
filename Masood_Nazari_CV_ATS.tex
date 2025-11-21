@@ -1,73 +1,41 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[9pt,a4paper]{article}
 
-% Enhanced Design Packages
+% ATS-Friendly: Simple, clean formatting
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.4in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{multicol}
-\usepackage{array}
-\usepackage{tabularx}
-
-% Professional Color Scheme
-\definecolor{primaryblue}{RGB}{0, 102, 204}
-\definecolor{accentteal}{RGB}{8, 189, 186}
-\definecolor{darkgray}{RGB}{51, 51, 51}
-\definecolor{lightgray}{RGB}{245, 245, 245}
-
-% Better font
 \usepackage{lmodern}
 
-% Working hyperlinks with colors
+% Working hyperlinks
 \hypersetup{
     colorlinks=true,
-    linkcolor=primaryblue,
-    urlcolor=primaryblue,
+    linkcolor=blue,
+    urlcolor=blue,
     pdfborder={0 0 0},
 }
 
-% Formatting
+% Formatting - Very compact
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
-\setlist{nosep,leftmargin=*,topsep=2pt,itemsep=2pt}
+\setlength{\parskip}{2pt}
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+\setlist{nosep,leftmargin=*,topsep=1pt,itemsep=1pt}
 
-% Enhanced section formatting with color
+% Compact section formatting
 \titleformat{\section}
-{\color{primaryblue}\normalsize\bfseries\uppercase}
+{\small\bfseries\uppercase}
 {}
 {0em}
-{}[\textcolor{accentteal}{\titlerule[1.2pt]}]
+{}[\titlerule[0.4pt]]
 
-\titlespacing*{\section}{0pt}{8pt}{5pt}
-
-% Professional header with colored bar
+% Header
 \newcommand{\cvheader}[6]{
-    \begin{tikzpicture}[remember picture,overlay]
-        \fill[primaryblue] (current page.north west) rectangle ([yshift=-0.12in]current page.north east);
-    \end{tikzpicture}
-    \vspace{-0.4in}
     \begin{center}
-        {\color{white}\LARGE\bfseries #1}\\[3pt]
-        {\color{white}\small #2}\\[6pt]
-        \begin{tabularx}{\textwidth}{@{}X@{\hspace{8pt}}X@{\hspace{8pt}}X@{\hspace{8pt}}X@{}}
-            \color{white}\small\textbf{📍} #3 & 
-            \color{white}\small\textbf{📞} \href{tel:+447938935499}{#4} & 
-            \color{white}\small\textbf{✉} \href{mailto:#5}{#5} & 
-            \color{white}\small\textbf{🔗} \href{https://www.linkedin.com/in/#6}{LinkedIn} \quad \href{https://github.com/MichaelTheAnalyst}{GitHub}
-        \end{tabularx}
+        {\large\bfseries #1}\\[1pt]
+        {\footnotesize #2}\\[2pt]
+        \footnotesize #3 \quad | \quad \href{tel:+447938935499}{#4} \quad | \quad \href{mailto:#5}{#5} \quad | \quad \href{https://www.linkedin.com/in/#6}{LinkedIn} \quad | \quad \href{https://github.com/MichaelTheAnalyst}{GitHub}
     \end{center}
-    \vspace{6pt}
-}
-
-% Enhanced profile section with colored box
-\newcommand{\profilesection}[1]{
-    \section{Personal Profile}
-    \noindent\colorbox{lightgray}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
-        \small #1
-    }}
     \vspace{4pt}
 }
 
@@ -82,26 +50,17 @@
 {masood-nazari}
 
 % Personal Profile
-\profilesection{Data \& Analytics professional (MSc Distinction) with 4+ years' experience delivering measurable business impact in healthcare, clinical trials, and fintech. Proven track record: 122:1 ROI platforms, 70\%+ workflow automation, 26\% fraud detection improvement. Expert in Python, SQL, R, Power BI, Tableau, Streamlit, ETL pipelines, ML/AI, and real-time dashboards.}
+\section{Personal Profile}
+\footnotesize Data \& Analytics professional (MSc Distinction) with 4+ years' experience delivering measurable business impact in healthcare, clinical trials, and fintech. Proven track record: 122:1 ROI platforms, 70\%+ workflow automation, 26\% fraud detection improvement. Expert in Python, SQL, R, Power BI, Tableau, Streamlit, ETL pipelines, ML/AI, and real-time dashboards.
 
 % Technical Skills
 \section{Technical Skills}
-\begin{multicols}{2}
-\small
-\begin{itemize}[leftmargin=*]
-    \item[\textcolor{accentteal}{$\bullet$}] \textbf{Languages:} Python, R, SQL, Bash, SAS, JavaScript
-    \item[\textcolor{accentteal}{$\bullet$}] \textbf{BI \& Visualisation:} Power BI, Tableau, R Shiny, Streamlit, Plotly
-    \item[\textcolor{accentteal}{$\bullet$}] \textbf{ETL \& Data Engineering:} FastAPI, Flask, API integration, ETL pipelines
-    \item[\textcolor{accentteal}{$\bullet$}] \textbf{ML \& AI:} Scikit-learn, XGBoost, LightGBM, SHAP, TensorFlow
-    \item[\textcolor{accentteal}{$\bullet$}] \textbf{Cloud \& Deployment:} Docker, Git, Azure, GCP, React
-\end{itemize}
-\end{multicols}
-\vspace{4pt}
+\footnotesize \textbf{Languages:} Python, R, SQL, Bash, SAS, JavaScript \quad | \quad \textbf{BI:} Power BI, Tableau, R Shiny, Streamlit, Plotly \quad | \quad \textbf{ETL:} FastAPI, Flask, API integration, ETL pipelines \quad | \quad \textbf{ML:} Scikit-learn, XGBoost, LightGBM, SHAP, TensorFlow \quad | \quad \textbf{Cloud:} Docker, Git, Azure, GCP, React
 
 % Professional Experience
 \section{Professional Experience}
 
-\noindent\textbf{\color{primaryblue}Clinical Data Coordinator \& BI Analyst} \hfill \textit{Sep 2024 -- Present}\\
+\footnotesize\textbf{Clinical Data Coordinator \& BI Analyst} \hfill \textit{Sep 2024 -- Present}\\
 \textit{Southampton Clinical Trials Unit, UK}
 \begin{itemize}
     \item Architected NIHR Research Intelligence Dashboard (Streamlit/Python) analysing £171.6M portfolio across 314 constituencies; demonstrated 122:1 ROI and £116K--£172K annual savings through automated ETL
@@ -109,18 +68,16 @@
     \item Built automated data validation system (Python, Flask, SAS) across 15+ oncology trials, saving 7.5+ hours daily and ensuring regulatory compliance
     \item Designed Python ETL pipeline cutting weekly reporting from 3 hours to under 1 hour, strengthening GDPR compliance
 \end{itemize}
-\vspace{3pt}
 
-\noindent\textbf{\color{primaryblue}Data Scientist Intern} \hfill \textit{Jun 2024 -- Sep 2024}\\
+\textbf{Data Scientist Intern} \hfill \textit{Jun 2024 -- Sep 2024}\\
 \textit{SC Solutions, Environmental Analytics \& Consulting}
 \begin{itemize}
     \item Built BioVision Analytics Hub ML platform (Streamlit, Plotly) with 4 ensemble models; achieved R² 0.89 accuracy and 15\% RMSE reduction for biomass prediction across 10,000+ hectares
     \item Automated geospatial data pipelines using Google Earth Engine and APIs; reduced preprocessing time by 80\%, enabling 3x faster modelling cycles
     \item Applied explainable AI (SHAP, LIME) to improve carbon stock estimation accuracy by 20\% for ecological consultants
 \end{itemize}
-\vspace{3pt}
 
-\noindent\textbf{\color{primaryblue}Data Analyst \& Accountant} \hfill \textit{Oct 2019 -- Sep 2023}\\
+\textbf{Data Analyst \& Accountant} \hfill \textit{Oct 2019 -- Sep 2023}\\
 \textit{Parsian E-Commerce Co., Fintech \& E-Commerce Platform}
 \begin{itemize}
     \item Developed real-time fraud detection API (FastAPI, Python) processing 5M+ transactions; demonstrated 3,700\% ROI potential with sub-second response times
@@ -129,39 +86,30 @@
     \item Designed KPI dashboards (Power BI, Tableau) boosting decision-making effectiveness by 27\%; reduced accounting discrepancies by 28\%
     \item Mentored 5 interns on SQL and financial analytics; achieved 95\% project completion rate
 \end{itemize}
-\vspace{3pt}
 
-\noindent\textbf{\color{primaryblue}Sales Accountant} \hfill \textit{Jun 2018 -- Sep 2019}\\
+\textbf{Sales Accountant} \hfill \textit{Jun 2018 -- Sep 2019}\\
 \textit{MaximTaxi, Private Transport \& Payments}
 \begin{itemize}
     \item Reconciled accounts using SQL/PostgreSQL; enhanced supplier--client relationships by 23\% and prepared VAT/tax reports through automation
 \end{itemize}
-\vspace{3pt}
 
 % Key Portfolio Projects
 \section{Key Portfolio Projects}
 
-\noindent\textbf{\color{primaryblue}Fraud Detection Dashboard API} \hfill \textit{2024}\\
-\small Production-ready FastAPI backend processing 5M+ transactions with real-time fraud detection, network analysis, and explainable AI; 3,700\% ROI potential. \textit{Technologies:} Python, FastAPI, ML, Network Analysis
-\vspace{3pt}
+\footnotesize\textbf{Fraud Detection Dashboard API} (2024) -- Production-ready FastAPI backend processing 5M+ transactions with real-time fraud detection, network analysis, and explainable AI; 3,700\% ROI potential. \textit{Technologies:} Python, FastAPI, ML, Network Analysis
 
-\noindent\textbf{\color{primaryblue}Bank Marketing Analytics Dashboard} \hfill \textit{2024}\\
-\small Full-stack ML platform (React/Flask + Streamlit) with 90.5\%+ accuracy for subscription prediction and K-Means segmentation for 41,188+ customers. \textit{Technologies:} Python, React, Flask, Streamlit, ML
-\vspace{3pt}
+\textbf{Bank Marketing Analytics Dashboard} (2024) -- Full-stack ML platform (React/Flask + Streamlit) with 90.5\%+ accuracy for subscription prediction and K-Means segmentation for 41,188+ customers. \textit{Technologies:} Python, React, Flask, Streamlit, ML
 
-\noindent\textbf{\color{primaryblue}NIHR Research Intelligence Dashboard} \hfill \textit{2024}\\
-\small Comprehensive BI platform with automated ETL, 11 research programmes, 314 constituencies mapped; 122:1 ROI, 70\% faster reporting. \textit{Technologies:} Python, Streamlit, BI, Healthcare Analytics
-\vspace{3pt}
+\textbf{NIHR Research Intelligence Dashboard} (2024) -- Comprehensive BI platform with automated ETL, 11 research programmes, 314 constituencies mapped; 122:1 ROI, 70\% faster reporting. \textit{Technologies:} Python, Streamlit, BI, Healthcare Analytics
 
 % Education
 \section{Education}
 
-\noindent\textbf{\color{primaryblue}MSc Data \& Decision Analytics (Distinction)} \hfill \textit{Sep 2023 -- Sep 2024}\\
+\footnotesize\textbf{MSc Data \& Decision Analytics (Distinction)} \hfill \textit{Sep 2023 -- Sep 2024}\\
 \textit{University of Southampton, UK} \quad | \quad Presidential Scholarship for Academic Excellence\\
-\small Key Projects: FTSE 100 Predictive Analysis (18\% accuracy improvement); S\&P 500 Returns Prediction (76\% accuracy)
-\vspace{3pt}
+\textit{Key Projects:} FTSE 100 Predictive Analysis (18\% accuracy improvement); S\&P 500 Returns Prediction (76\% accuracy)
 
-\noindent\textbf{\color{primaryblue}BSc Materials Engineering (Distinction)} \hfill \textit{Sep 2010 -- Sep 2014}\\
+\textbf{BSc Materials Engineering (Distinction)} \hfill \textit{Sep 2010 -- Sep 2014}\\
 \textit{Semnan University} \quad | \quad Top 5\%
 
 \end{document}
