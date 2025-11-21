@@ -6,18 +6,7 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{hyperref}
-\usepackage{fontspec}
-
-% Better font - Use system fonts that work in Overleaf
-\IfFontExistsTF{/System/Library/Fonts/Helvetica.ttc}{%
-    \setmainfont{Helvetica}
-}{%
-    \IfFontExistsTF{/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf}{%
-        \setmainfont{DejaVu Sans}
-    }{%
-        \usepackage{lmodern}
-    }
-}
+\usepackage{lmodern} % Better font - Latin Modern (professional and readable)
 
 % Working hyperlinks
 \hypersetup{
