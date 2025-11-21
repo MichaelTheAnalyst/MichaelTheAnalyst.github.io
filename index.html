@@ -140,12 +140,20 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#0f62fe">
     <meta name="msapplication-TileColor" content="#0f62fe">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="assets/profile pic.jpg" as="image">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
@@ -178,7 +186,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="profile-image">
-                    <img src="assets/profile pic.jpg" alt="Masood Nazari">
+                    <img src="assets/profile pic.jpg" alt="Masood Nazari" width="200" height="200">
                 </div>
                 <h1 class="hero-title">Hi, I'm <span class="highlight">Masood Nazari</span></h1>
                 <p class="hero-subtitle">Data & BI Analyst | Healthcare & Fintech | AI & Analytics Engineering</p>
@@ -240,10 +248,10 @@
                         <div class="carousel-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/page 1.png" alt="Executive Pulse Dashboard - Real-time Fraud Monitoring" onclick="openModal('assets/page 1.png', this)">
+                                    <img src="assets/page 1.png" alt="Executive Pulse Dashboard - Real-time Fraud Monitoring" loading="lazy" onclick="openModal('assets/page 1.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Page 2.png" alt="Fraud Detection Command Center - Advanced Analytics" onclick="openModal('assets/Page 2.png', this)">
+                                    <img src="assets/Page 2.png" alt="Fraud Detection Command Center - Advanced Analytics" loading="lazy" onclick="openModal('assets/Page 2.png', this)">
                                 </div>
                             </div>
                         </div>
@@ -285,22 +293,22 @@
                         <div class="carousel-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Dashboard - Overview" onclick="openModal('assets/bank-marketing/overview.png', this)">
+                                    <img src="assets/bank-marketing/overview.png" alt="Bank Marketing Dashboard - Overview" loading="lazy" onclick="openModal('assets/bank-marketing/overview.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/FI.png" alt="Feature Importance Analysis" onclick="openModal('assets/bank-marketing/FI.png', this)">
+                                    <img src="assets/bank-marketing/FI.png" alt="Feature Importance Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/FI.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/PM.png" alt="Predictive Models Performance" onclick="openModal('assets/bank-marketing/PM.png', this)">
+                                    <img src="assets/bank-marketing/PM.png" alt="Predictive Models Performance" loading="lazy" onclick="openModal('assets/bank-marketing/PM.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/CS.png" alt="Customer Segmentation Analysis" onclick="openModal('assets/bank-marketing/CS.png', this)">
+                                    <img src="assets/bank-marketing/CS.png" alt="Customer Segmentation Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/CS.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/CO.png" alt="Contact Optimization Analysis" onclick="openModal('assets/bank-marketing/CO.png', this)">
+                                    <img src="assets/bank-marketing/CO.png" alt="Contact Optimization Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/CO.png', this)">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/bank-marketing/EI.png" alt="Economic Impact Analysis" onclick="openModal('assets/bank-marketing/EI.png', this)">
+                                    <img src="assets/bank-marketing/EI.png" alt="Economic Impact Analysis" loading="lazy" onclick="openModal('assets/bank-marketing/EI.png', this)">
                                 </div>
                             </div>
                         </div>
@@ -623,7 +631,7 @@
                     <div class="certifications-track">
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1662355840498.png" alt="Power BI Essential Training Certificate" onclick="openModal('assets/cert/1662355840498.png', this)">
+                                <img src="assets/cert/1662355840498.png" alt="Power BI Essential Training Certificate" loading="lazy" onclick="openModal('assets/cert/1662355840498.png', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Power BI Essential Training</h3>
@@ -634,7 +642,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696600478231.jpg" alt="Statistics Foundations 1: The Basics Certificate" onclick="openModal('assets/cert/1696600478231.jpg', this)">
+                                <img src="assets/cert/1696600478231.jpg" alt="Statistics Foundations 1: The Basics Certificate" loading="lazy" onclick="openModal('assets/cert/1696600478231.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 1: The Basics</h3>
@@ -645,7 +653,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696634068993.jpg" alt="Statistics Foundations 2: Probability Certificate" onclick="openModal('assets/cert/1696634068993.jpg', this)">
+                                <img src="assets/cert/1696634068993.jpg" alt="Statistics Foundations 2: Probability Certificate" loading="lazy" onclick="openModal('assets/cert/1696634068993.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 2: Probability</h3>
@@ -656,7 +664,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1696723996904.jpg" alt="Statistics Foundations 3: Using Data Sets Certificate" onclick="openModal('assets/cert/1696723996904.jpg', this)">
+                                <img src="assets/cert/1696723996904.jpg" alt="Statistics Foundations 3: Using Data Sets Certificate" loading="lazy" onclick="openModal('assets/cert/1696723996904.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 3: Using Data Sets</h3>
@@ -667,7 +675,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1697534650937.jpg" alt="Regression Analysis Fundamentals Certificate" onclick="openModal('assets/cert/1697534650937.jpg', this)">
+                                <img src="assets/cert/1697534650937.jpg" alt="Regression Analysis Fundamentals Certificate" loading="lazy" onclick="openModal('assets/cert/1697534650937.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Regression Analysis Fundamentals</h3>
@@ -678,7 +686,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1699285180103.jpg" alt="Statistics Foundations 4: Advanced Topics Certificate" onclick="openModal('assets/cert/1699285180103.jpg', this)">
+                                <img src="assets/cert/1699285180103.jpg" alt="Statistics Foundations 4: Advanced Topics Certificate" loading="lazy" onclick="openModal('assets/cert/1699285180103.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Statistics Foundations 4: Advanced Topics</h3>
@@ -689,7 +697,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1699870327904.jpg" alt="Artificial Intelligence Foundations: Thinking Machines Certificate" onclick="openModal('assets/cert/1699870327904.jpg', this)">
+                                <img src="assets/cert/1699870327904.jpg" alt="Artificial Intelligence Foundations: Thinking Machines Certificate" loading="lazy" onclick="openModal('assets/cert/1699870327904.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">AI Foundations: Thinking Machines</h3>
@@ -700,7 +708,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1700519876627.jpg" alt="Machine Learning Foundations: Linear Algebra Certificate" onclick="openModal('assets/cert/1700519876627.jpg', this)">
+                                <img src="assets/cert/1700519876627.jpg" alt="Machine Learning Foundations: Linear Algebra Certificate" loading="lazy" onclick="openModal('assets/cert/1700519876627.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">ML Foundations: Linear Algebra</h3>
@@ -711,7 +719,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1701366945663.jpg" alt="Cleaning Bad Data in R Certificate" onclick="openModal('assets/cert/1701366945663.jpg', this)">
+                                <img src="assets/cert/1701366945663.jpg" alt="Cleaning Bad Data in R Certificate" loading="lazy" onclick="openModal('assets/cert/1701366945663.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Cleaning Bad Data in R</h3>
@@ -722,7 +730,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1715159185436.jpg" alt="Building and Deploying Deep Learning Applications with TensorFlow Certificate" onclick="openModal('assets/cert/1715159185436.jpg', this)">
+                                <img src="assets/cert/1715159185436.jpg" alt="Building and Deploying Deep Learning Applications with TensorFlow Certificate" loading="lazy" onclick="openModal('assets/cert/1715159185436.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Deep Learning with TensorFlow</h3>
@@ -733,7 +741,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/1718191059612.jpg" alt="Learning Amazon SageMaker Certificate" onclick="openModal('assets/cert/1718191059612.jpg', this)">
+                                <img src="assets/cert/1718191059612.jpg" alt="Learning Amazon SageMaker Certificate" loading="lazy" onclick="openModal('assets/cert/1718191059612.jpg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">Learning Amazon SageMaker</h3>
@@ -744,7 +752,7 @@
 
                         <div class="certificate-card">
                             <div class="certificate-image-wrapper">
-                                <img src="assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg" alt="SQL for Data Science Certificate" onclick="openModal('assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg', this)">
+                                <img src="assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg" alt="SQL for Data Science Certificate" loading="lazy" onclick="openModal('assets/cert/CERTIFICATE_LANDING_PAGE~XJTCXKCZH2E4.jpeg', this)">
                             </div>
                             <div class="certificate-info">
                                 <h3 class="certificate-title">SQL for Data Science</h3>
