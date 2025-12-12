@@ -1,6 +1,15 @@
 {
   "projects": [
     {
+      "title": "🚗 InsurePrice - Car Insurance Risk Modeling Platform",
+      "description": "Enterprise-grade ML-powered car insurance platform with risk prediction (AUC 0.65+), actuarial pricing engine, real-time fraud detection, REST API, and interactive Streamlit dashboard. Features CatBoost, XGBoost, Neural Networks, SHAP explainability, and £60M fraud savings potential.",
+      "icon": "fa-car",
+      "tags": ["Python", "Machine Learning", "FastAPI", "Streamlit", "XGBoost", "CatBoost"],
+      "github": "https://github.com/MichaelTheAnalyst/InsurePrice-Car-Insurance-Risk-Modeling",
+      "demo": "",
+      "featured": true
+    },
+    {
       "title": "Data Analysis Project",
       "description": "Comprehensive analysis of complex datasets using Python, Pandas, and visualization libraries to derive actionable insights.",
       "icon": "fa-chart-line",
@@ -50,4 +59,3 @@
     }
   ]
 }
-
