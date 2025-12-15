@@ -17,13 +17,13 @@
     --primary-blue: #0f62fe;
     --primary-dark: #002d9c;
     --primary-light: #4589ff;
-    
+
     /* Accent Colors - Tech Teal & Warm Orange */
     --accent-teal: #08bdba;
     --accent-teal-light: #3ddbd9;
     --accent-orange: #ff832b;
     --accent-purple: #a56eff;
-    
+
     /* Neutral Colors */
     --text-primary: #161616;
     --text-secondary: #525252;
@@ -33,31 +33,54 @@
     --bg-lighter: #fafafa;
     --bg-dark: #161616;
     --bg-card: #ffffff;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #0f62fe 0%, #4589ff 50%, #08bdba 100%);
     --gradient-warm: linear-gradient(135deg, #ff832b 0%, #ff6b9d 100%);
     --gradient-cool: linear-gradient(135deg, #08bdba 0%, #a56eff 100%);
     --gradient-dark: linear-gradient(135deg, #002d9c 0%, #0f62fe 100%);
-    
+
     /* Shadows - Enhanced Depth */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    
+
     /* Border Radius */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
-    
+
     /* Transitions */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Colors */
+    --text-primary: #f4f4f4;
+    --text-secondary: #c6c6c6;
+    --text-light: #a0a0a0;
+    --bg-white: #1f1f1f;
+    --bg-light: #2d2d2d;
+    --bg-lighter: #121212;
+    --bg-dark: #0a0a0a;
+    --bg-card: #1f1f1f;
+
+    /* Adjusted Shadows for Dark Mode */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+
+    /* Adjusted Gradients for Dark Mode */
+    --gradient-primary: linear-gradient(135deg, #4589ff 0%, #0f62fe 100%);
+    --gradient-warm: linear-gradient(135deg, #ff9e5e 0%, #ff832b 100%);
 }
 
 /* Typography - Optimized Hierarchy */
@@ -172,6 +195,40 @@ body {
     border-radius: 2px;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    border-radius: 50%;
+    margin-left: 1rem;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--primary-blue);
+    transform: rotate(15deg);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar Dark Mode Adjustment */
+[data-theme="dark"] .navbar {
+    background: rgba(18, 18, 18, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* ===================================
    HERO SECTION - Modern Gradient
    =================================== */
@@ -196,7 +253,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(255, 131, 43, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(165, 110, 255, 0.15) 0%, transparent 50%);
     pointer-events: none;
@@ -383,6 +440,7 @@ body {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -394,6 +452,7 @@ body {
         opacity: 0;
         transform: scale(0.85);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -853,9 +912,12 @@ section {
 }
 
 @keyframes pulse-cta {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 8px 20px rgba(15, 98, 254, 0.3), 0 4px 12px rgba(255, 131, 43, 0.2);
     }
+
     50% {
         box-shadow: 0 12px 30px rgba(15, 98, 254, 0.4), 0 6px 18px rgba(255, 131, 43, 0.3);
     }
@@ -915,9 +977,12 @@ section {
 }
 
 @keyframes bounce-subtle {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(3px);
     }
@@ -1155,6 +1220,7 @@ section {
         opacity: 0;
         transform: scale(0.98);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -1334,11 +1400,11 @@ section {
         height: 45px;
         font-size: 1.25rem;
     }
-    
+
     .modal-prev {
         left: 1rem;
     }
-    
+
     .modal-next {
         right: 1rem;
     }
@@ -1349,51 +1415,51 @@ section {
     .hero-showcase {
         margin-bottom: 2rem;
     }
-    
+
     .hero-carousel {
         max-width: 100%;
         border-radius: var(--radius-lg);
     }
-    
+
     .carousel-btn {
         width: 40px;
         height: 40px;
         font-size: 1rem;
         opacity: 0.7;
     }
-    
+
     .carousel-prev {
         left: 0.75rem;
     }
-    
+
     .carousel-next {
         right: 0.75rem;
     }
-    
+
     .carousel-dots {
         bottom: 1rem;
     }
-    
+
     .project-screenshots {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
         padding: 1.5rem;
     }
-    
+
     .project-screenshots::before {
         font-size: 0.75rem;
         padding: 0.4rem 1rem;
         left: 1.5rem;
     }
-    
+
     .screenshot-item {
         aspect-ratio: 16 / 10;
     }
-    
+
     .modal.active {
         padding: 1rem;
     }
-    
+
     .modal-close {
         top: 1rem;
         right: 1rem;
@@ -1407,49 +1473,61 @@ section {
     .hero-showcase {
         margin-bottom: 1.5rem;
     }
-    
+
     .carousel-btn {
         width: 35px;
         height: 35px;
         font-size: 0.875rem;
     }
-    
+
     .carousel-prev {
         left: 0.5rem;
     }
-    
+
     .carousel-next {
         right: 0.5rem;
     }
-    
+
     .dot {
         width: 10px;
         height: 10px;
     }
-    
+
     .dot.active {
         width: 24px;
     }
-    
+
     .project-screenshots {
         grid-template-columns: 1fr;
         gap: 1.25rem;
         padding: 1.25rem;
     }
-    
+
     .screenshot-item {
         aspect-ratio: 16 / 9;
     }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes scaleIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* ===================================
@@ -1590,9 +1668,12 @@ section {
 }
 
 @keyframes pulse-icon {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
@@ -1948,7 +2029,7 @@ section {
     .recommendation-prev {
         left: -2rem;
     }
-    
+
     .recommendation-next {
         right: -2rem;
     }
@@ -2164,7 +2245,7 @@ section {
     .certificate-prev {
         left: -2rem;
     }
-    
+
     .certificate-next {
         right: -2rem;
     }
@@ -2206,33 +2287,33 @@ section {
     .certifications-carousel-wrapper {
         padding: 0 3.5rem;
     }
-    
+
     .certifications-carousel {
         overflow: hidden;
     }
-    
+
     .certifications-track {
         gap: 2rem;
     }
-    
+
     .certifications-track .certificate-card {
         flex: 0 0 100%;
         width: 100%;
     }
-    
+
     .certificate-card {
         padding: 1.25rem;
         gap: 1rem;
     }
-    
+
     .certificate-prev {
         left: 0.5rem;
     }
-    
+
     .certificate-next {
         right: 0.5rem;
     }
-    
+
     .certificate-carousel-btn {
         width: 40px;
         height: 40px;
@@ -2240,15 +2321,15 @@ section {
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
-    
+
     .certificate-title {
         font-size: 0.9375rem;
     }
-    
+
     .certificate-platform {
         font-size: 0.8125rem;
     }
-    
+
     .certificate-date {
         font-size: 0.75rem;
     }
@@ -2258,29 +2339,29 @@ section {
     .certifications-carousel-wrapper {
         padding: 0 2.5rem;
     }
-    
+
     .certificate-card {
         padding: 1rem;
     }
-    
+
     .certificate-prev {
         left: 0.25rem;
     }
-    
+
     .certificate-next {
         right: 0.25rem;
     }
-    
+
     .certificate-carousel-btn {
         width: 36px;
         height: 36px;
         font-size: 0.875rem;
     }
-    
+
     .certificate-carousel-dots {
         gap: 0.5rem;
     }
-    
+
     .certificate-dot {
         width: 8px;
         height: 8px;
@@ -2294,32 +2375,32 @@ section {
         margin: -1.5rem auto 3rem;
         padding: 0 1rem;
     }
-    
+
     .recommendations-carousel-wrapper {
         padding: 0 3.5rem;
     }
-    
+
     .recommendations-track {
         gap: 2rem;
     }
-    
+
     .recommendations-track .recommendation-card {
         min-width: 100%;
     }
-    
+
     .recommendation-card {
         padding: 2rem;
         gap: 1.5rem;
     }
-    
+
     .recommendation-prev {
         left: 0.5rem;
     }
-    
+
     .recommendation-next {
         right: 0.5rem;
     }
-    
+
     .recommendation-carousel-btn {
         width: 40px;
         height: 40px;
@@ -2327,50 +2408,50 @@ section {
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
-    
+
     .quote-icon {
         width: 50px;
         height: 50px;
         top: -0.25rem;
         left: -0.25rem;
     }
-    
+
     .quote-icon i {
         font-size: 1.25rem;
     }
-    
+
     .recommendation-quote {
         font-size: 1rem;
         padding: 1.75rem 1.25rem 1.25rem 1.75rem;
     }
-    
+
     .recommendation-quote::before {
         font-size: 3rem;
         left: 1.25rem;
         top: 0.25rem;
     }
-    
+
     .recommendation-author {
         gap: 0.875rem;
     }
-    
+
     .recommendation-avatar {
         width: 50px;
         height: 50px;
     }
-    
+
     .recommendation-avatar i {
         font-size: 1.25rem;
     }
-    
+
     .recommendation-name {
         font-size: 0.9375rem;
     }
-    
+
     .recommendation-role {
         font-size: 0.75rem;
     }
-    
+
     .view-recommendation-btn {
         padding: 0.75rem 1.25rem;
         font-size: 0.875rem;
@@ -2381,35 +2462,35 @@ section {
     .recommendations-carousel-wrapper {
         padding: 0 2.5rem;
     }
-    
+
     .recommendation-card {
         padding: 1.5rem;
         gap: 1.25rem;
     }
-    
+
     .recommendation-quote {
         font-size: 0.9375rem;
         padding: 1.5rem 1rem 1rem 1.5rem;
         line-height: 1.7;
     }
-    
+
     .quote-icon {
         width: 45px;
         height: 45px;
     }
-    
+
     .recommendation-footer {
         gap: 1rem;
     }
-    
+
     .recommendation-prev {
         left: 0.25rem;
     }
-    
+
     .recommendation-next {
         right: 0.25rem;
     }
-    
+
     .recommendation-carousel-btn {
         width: 36px;
         height: 36px;
@@ -2534,8 +2615,15 @@ section {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .contact-form-title {
@@ -2717,44 +2805,44 @@ section {
     .contact-methods {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-form-wrapper {
         margin-top: 3rem;
     }
-    
+
     .contact-form-header {
         margin-bottom: 2rem;
         padding-bottom: 1.5rem;
     }
-    
+
     .form-header-icon {
         width: 60px;
         height: 60px;
         margin-bottom: 1rem;
     }
-    
+
     .form-header-icon i {
         font-size: 1.5rem;
     }
-    
+
     .contact-form-title {
         font-size: 1.5rem;
     }
-    
+
     .contact-form-subtitle {
         font-size: 0.9375rem;
     }
-    
+
     .contact-form {
         padding: 2rem 1.5rem;
         gap: 1.5rem;
     }
-    
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .form-submit {
         width: 100%;
         min-width: auto;
@@ -2782,9 +2870,21 @@ section {
 }
 
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    10%, 30% { transform: scale(1.1); }
-    20%, 40% { transform: scale(0.9); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10%,
+    30% {
+        transform: scale(1.1);
+    }
+
+    20%,
+    40% {
+        transform: scale(0.9);
+    }
 }
 
 /* ===================================
@@ -2795,6 +2895,7 @@ section {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -3016,6 +3117,7 @@ img[role="button"]:focus {
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -3046,6 +3148,7 @@ img[role="button"]:focus {
         transform: translateY(100%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -3143,22 +3246,22 @@ img[role="button"]:focus {
     .cookie-consent {
         padding: 1.25rem 1.5rem;
     }
-    
+
     .cookie-consent-content {
         flex-direction: column;
         align-items: stretch;
         gap: 1.25rem;
     }
-    
+
     .cookie-consent-text {
         min-width: auto;
     }
-    
+
     .cookie-consent-buttons {
         width: 100%;
         flex-direction: column;
     }
-    
+
     .cookie-btn {
         width: 100%;
         justify-content: center;

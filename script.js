@@ -534,6 +534,50 @@ window.addEventListener('load', () => {
 });
 
 // ===================================
+// DARK MODE
+// ===================================
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+const htmlElement = document.documentElement;
+
+// Check for saved user preference, if any, on load of the website
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme) {
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+} else if (systemPrefersDark) {
+    htmlElement.setAttribute('data-theme', 'dark');
+    updateThemeIcon('dark');
+}
+
+// Function to update icon
+function updateThemeIcon(theme) {
+    if (!themeIcon) return;
+    
+    if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
+
+// Toggle theme on click
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+}
+
+// ===================================
 // RECOMMENDATION CAROUSEL
 // ===================================
 let recommendationCarousel = {

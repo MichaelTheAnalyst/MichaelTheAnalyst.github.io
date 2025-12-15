@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Anonymous CV</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.2cm 1.5cm 1.2cm 1.5cm;
+        }
+        @page:first {
+            margin-top: 0.8cm;
+        }
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10pt;
+            line-height: 1.25;
+            color: #000000;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 0;
+        }
+        h1 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 0 0 0.1cm 0;
+            color: #000000;
+            text-align: center;
+            letter-spacing: 0.1pt;
+            padding-top: 0;
+        }
+        h2 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 0.2cm;
+            margin-bottom: 0.1cm;
+            color: #000000;
+            border-bottom: 0.8pt solid #000000;
+            padding-bottom: 0.05cm;
+            page-break-after: avoid;
+        }
+        h2:first-of-type {
+            margin-top: 0.15cm;
+        }
+        h3 {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-top: 0.15cm;
+            margin-bottom: 0.08cm;
+            color: #000000;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 0.08cm 0;
+            text-align: justify;
+            orphans: 2;
+            widows: 2;
+        }
+        ul {
+            margin: 0.08cm 0;
+            padding-left: 0.9cm;
+            text-align: justify;
+        }
+        li {
+            margin: 0.05cm 0;
+            line-height: 1.2;
+        }
+        .section {
+            margin-bottom: 0.18cm;
+            page-break-inside: avoid;
+        }
+        .job-title {
+            font-weight: bold;
+        }
+        .company {
+            font-style: italic;
+        }
+        .date {
+            font-style: italic;
+        }
+        .profile-section {
+            margin-bottom: 0.18cm;
+        }
+        .compact {
+            margin-bottom: 0.12cm;
+        }
+        .job-entry {
+            margin-bottom: 0.15cm;
+        }
+        .skills-section {
+            margin-bottom: 0.15cm;
+        }
+        .skills-section ul {
+            columns: 3;
+            column-gap: 0.6cm;
+            column-rule: none;
+            margin: 0.05cm 0;
+        }
+        .skills-section li {
+            break-inside: avoid;
+            margin: 0.04cm 0;
+            font-size: 9.5pt;
+        }
+        @media print {
+            body {
+                margin: 0;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+            h3 {
+                page-break-after: avoid;
+            }
+            ul {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Data & BI Analyst | Healthcare & Fintech | AI & Analytics Engineering</h1>
+
+<div class="section profile-section compact">
+<h2>Personal Profile</h2>
+<p style="margin: 0.06cm 0;">Data & Analytics professional (MSc Distinction, Data & Decision Analytics) with 4+ years' experience in healthcare, clinical trials, and fintech. Skilled in Python, SQL, R, and BI tools (Power BI, Tableau, R Shiny), with expertise in ETL pipelines, automation, dashboards, and machine learning. Proven record of delivering faster data pipelines (80%+), automated reporting (70% less manual work), and improved fraud detection (26%). Now seeking roles where data, AI, and BI create measurable business impact.</p>
+</div>
+
+<div class="section skills-section">
+<h2>Technical Skills</h2>
+<ul style="margin: 0.05cm 0;">
+    <li><strong>Languages:</strong> Python, R, SQL, Bash, SAS</li>
+    <li><strong>BI & Visualisation:</strong> Power BI, Tableau, R Shiny, Excel (advanced)</li>
+    <li><strong>ETL & Data Engineering:</strong> API integration, Data Cleaning, ETL pipelines, Google Earth Engine</li>
+    <li><strong>Libraries & ML Tools:</strong> Pandas, NumPy, Scikit-learn, XGBoost, Prophet, SHAP, LIME</li>
+    <li><strong>AI & NLP:</strong> Neural Networks, SpaCy, BERT, Clustering, Forecasting</li>
+    <li><strong>Deployment & Cloud:</strong> Docker, Git, Azure, Google Cloud</li>
+    <li><strong>Data Management & Compliance:</strong> GDPR, Metadata Governance, GCP Standards</li>
+    <li><strong>Methodologies:</strong> Agile, PRINCE2</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Professional Experience</h2>
+
+<div class="job-entry">
+<h3>Clinical Data Analyst / Engineer (Official title: Clinical Data Coordinator) | Clinical Trials Unit | Academic Research Centre | Sep 2024 – Present</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Developed R Shiny and Streamlit dashboards to monitor recruitment trends, protocol deviations, and site performance, enabling trial managers to make real-time decisions.</li>
+    <li>Engineered a Streamlit/Python trial dashboard with automated Excel parsing (schema validation), statistical process control charts with RAG scoring, and real-time KPI tracking across 9 research sites, overcoming inconsistent data formats and enabling interactive performance monitoring.</li>
+    <li>Built automated data-validation pipelines (Python + SAS + Flask) across 15+ oncology trials, reducing manual review workload by 70% and improving regulatory compliance.</li>
+    <li>Designed GDPR-compliant ETL pipelines that cut weekly reporting from 3 hours to under 1 hour and reduced error rates by 35%.</li>
+    <li>Translated clinical protocols into measurable KPIs, improving visibility of bottlenecks across 9+ NHS sites.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Data Scientist Intern | Environmental Analytics & Consulting Firm | Jun 2024 – Sep 2024</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Automated geospatial data pipelines to overcome bottlenecks in satellite data retrieval, using Google Earth Engine and APIs to standardise NASA GEDI and Sentinel-2 datasets; reduced preprocessing time by 80%, enabling faster modelling cycles.</li>
+    <li>Built BioVision Analytics Hub, an ML dashboard (Streamlit, Plotly) with ensemble models + hyperparameter tuning; achieved 15% RMSE reduction through feature engineering/selection, enabling real-time biomass prediction with spatial analysis.</li>
+    <li>Engineered biomass prediction models on large-scale forest data (10,000+ hectares) to improve carbon stock estimation accuracy by 20%, and applied explainable AI (SHAP, LIME) to reveal key environmental drivers behind predictions; delivered more reliable and interpretable insights for ecological consultants and policy analysts.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Data Analyst & Accountant | Fintech & E-Commerce Platform | Oct 2019 – Sep 2023</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Automated financial workflows to eliminate inefficiencies in manual reporting, using SQL and Python scripts to streamline reconciliation processes; reduced handling time by 43%, enabling faster month-end close.</li>
+    <li>Strengthened fraud detection by analysing transaction anomalies (e.g., duplicate location payments, same card used in two cities within minutes) and building ML models for anomaly detection; improved fraud prevention effectiveness by 26% and reduced compliance risks.</li>
+    <li>Enhanced financial decision-making by designing KPI dashboards (Power BI, Tableau) that tracked revenue, costs, and operational bottlenecks; improved management's ability to act on data, boosting decision-making effectiveness by 27%.</li>
+    <li>Improved data integrity by integrating SAP/ERP systems with SQL-based reconciliation processes; reduced accounting discrepancies by 28% and improved audit readiness.</li>
+    <li>Built analytical capability in the team by mentoring 5 interns on SQL and financial analytics best practices; achieved a 95% project completion rate and supported 10 successful product feature launches.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Sales Accountant | Private Transport & Payments Firm | Jun 2018 – Sep 2019</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Improved financial accuracy and client trust by reconciling accounts and streamlining payment workflows; used SQL/PostgreSQL to identify discrepancies and enhanced supplier–client relationships by 23%.</li>
+    <li>Enhanced compliance and transparency by preparing VAT and tax reports through SQL-based automation; reduced reporting errors and supported regulatory audits.</li>
+    <li>Ensured operational continuity by overseeing invoicing, bank statements, and audits, maintaining accurate records and minimising financial disruptions.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Content Producer | EdTech & Language Learning Platform | Jan 2017 – May 2018</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Improved learner outcomes by designing digital English-learning programs tailored to exam preparation; boosted student test score improvement by 32% and engagement by 51%.</li>
+    <li>Enhanced brand reach and consistency by collaborating with media and marketing teams to produce multi-platform content, ensuring alignment between educational materials and brand messaging.</li>
+    <li>Personalised student learning journeys by delivering lessons in speaking, writing, and reading, supported with progress tracking systems that increased retention and learner satisfaction.</li>
+</ul>
+</div>
+</div>
+
+<div class="section compact">
+<h2>Education</h2>
+
+<div class="job-entry">
+<h3>MSc Data & Decision Analytics (Distinction) | UK University | 2023 – 2024</h3>
+<p style="margin: 0.06cm 0;"><strong>Honours:</strong> Awarded the Presidential Scholarship for Academic Excellence & Alignment with UN SDGs.</p>
+<p style="margin: 0.06cm 0;"><strong>Key Projects:</strong> FTSE 100 Predictive Analysis – Developed ARIMA & Exponential Smoothing models to forecast stock trends, improving forecasting accuracy by 18%. S&P 500 Returns Prediction – Built logistic regression & LDA models to predict weekly market movements with 76% accuracy.</p>
+</div>
+
+<div class="job-entry">
+<h3>BSc Materials Engineering (Distinction) | 2010 – 2014</h3>
+<p style="margin: 0.06cm 0;">Graduated with Distinction (Top 5%). Strong foundation in mathematical modelling, computational analysis, and process optimization.</p>
+</div>
+</div>
+
+<div class="section compact">
+<h2>Key Portfolio Projects</h2>
+
+<div class="job-entry">
+<h3>Fraud Detection Dashboard API | Personal Project | 2024</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Built production-ready FastAPI backend with ML monitoring, network analysis, and explainable AI capabilities; processes 5M+ transactions with sub-second response times, features 18 interactive analytics tiles, and enables real-time fraud ring detection and money mule account identification.</li>
+    <li>Demonstrated 3,700% ROI potential through comprehensive model monitoring, drift detection, and 24-hour predictive risk scoring for financial institutions.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Bank Marketing Analytics Dashboard | Personal Project | 2024</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Developed full-stack ML analytics platform (React/Flask + Streamlit) featuring 6 ML algorithms for subscription prediction, achieving 90.5%+ accuracy, K-Means customer segmentation, and contact optimisation analysis.</li>
+    <li>Analysed 41K+ customers to enable pre-call customer scoring, 15-20% conversion improvement through segmentation, and optimal contact frequency strategies for financial institutions.</li>
+</ul>
+</div>
+
+<div class="job-entry">
+<h3>Research Intelligence Dashboard | University Project | 2024</h3>
+<ul style="margin: 0.06cm 0;">
+    <li>Architected comprehensive BI platform (4K+ lines, Streamlit/Python) with automated ETL, analysing £171.6M research portfolio across 11 research programmes and 314 constituencies.</li>
+    <li>Demonstrated 122:1 ROI potential and £116K-£172K projected annual savings through 70% faster reporting, parliament-ready visualisations, and data quality scoring (73.6%).</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
+
