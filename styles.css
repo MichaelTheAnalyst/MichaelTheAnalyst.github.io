@@ -14,50 +14,51 @@
 
 :root {
     /* Primary Colors - Professional Blues */
-    --primary-blue: #0f62fe;
-    --primary-dark: #002d9c;
-    --primary-light: #4589ff;
+    --primary-blue: #0066cc;
+    /* Deeper, more corporate blue */
+    --primary-dark: #004494;
+    --primary-light: #4d94ff;
 
-    /* Accent Colors - Tech Teal & Warm Orange */
-    --accent-teal: #08bdba;
-    --accent-teal-light: #3ddbd9;
-    --accent-orange: #ff832b;
-    --accent-purple: #a56eff;
+    /* Accent Colors - Refined */
+    --accent-teal: #00a8a4;
+    --accent-orange: #f57c00;
+    --accent-purple: #8e24aa;
 
-    /* Neutral Colors */
-    --text-primary: #161616;
-    --text-secondary: #525252;
-    --text-light: #8d8d8d;
+    /* Neutral Colors - Higher Contrast */
+    --text-primary: #111111;
+    --text-secondary: #444444;
+    --text-light: #757575;
     --bg-white: #ffffff;
-    --bg-light: #f4f4f4;
-    --bg-lighter: #fafafa;
-    --bg-dark: #161616;
+    --bg-light: #f8f9fa;
+    /* Standard light grey */
+    --bg-lighter: #ffffff;
+    --bg-dark: #121212;
     --bg-card: #ffffff;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #0f62fe 0%, #4589ff 50%, #08bdba 100%);
-    --gradient-warm: linear-gradient(135deg, #ff832b 0%, #ff6b9d 100%);
-    --gradient-cool: linear-gradient(135deg, #08bdba 0%, #a56eff 100%);
-    --gradient-dark: linear-gradient(135deg, #002d9c 0%, #0f62fe 100%);
+    /* Gradients - Subtle & Professional */
+    --gradient-primary: linear-gradient(135deg, #0066cc 0%, #004494 100%);
+    --gradient-warm: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%);
+    --gradient-cool: linear-gradient(135deg, #00a8a4 0%, #00897b 100%);
 
-    /* Shadows - Enhanced Depth */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    /* Shadows - softer and more diffuse */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-    /* Border Radius */
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
+    /* Border Radius - Tighter & Cleaner */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    /* Reduced from 1.5rem for cleaner look */
 
     /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 200ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
 }
 
 [data-theme="dark"] {
@@ -91,7 +92,8 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
+    /* Improvement for readability */
     color: var(--text-primary);
     background-color: var(--bg-lighter);
     font-size: 16px;
@@ -285,6 +287,7 @@ body {
     border-radius: 50%;
     padding: 6px;
     background: linear-gradient(135deg, rgba(255, 131, 43, 0.6), rgba(165, 110, 255, 0.6));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -675,7 +678,8 @@ section {
     padding: 2.5rem;
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    /* Distinct border */
     position: relative;
     overflow: hidden;
 }
@@ -694,8 +698,9 @@ section {
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-2xl);
+    transform: translateY(-4px);
+    /* More stable, less jumpy */
+    box-shadow: var(--shadow-xl);
 }
 
 .project-card:hover::before {
