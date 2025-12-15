@@ -3402,7 +3402,7 @@ img[role="button"]:focus {
 
 /* Typing Effect */
 .typing-text {
-    color: var(--primary-blue);
+    color: var(--accent-orange);
     font-weight: 700;
     position: relative;
     border-right: 3px solid var(--accent-orange);
