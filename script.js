@@ -157,24 +157,7 @@ function createProjectCard(repo) {
 // loadGitHubProjects();
 
 // Typing effect for hero subtitle
-const subtitleElement = document.querySelector('.hero-subtitle');
-const subtitleText = subtitleElement.textContent;
-subtitleElement.textContent = '';
-
-let charIndex = 0;
-function typeText() {
-    if (charIndex < subtitleText.length) {
-        subtitleElement.textContent += subtitleText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeText, 100);
-    }
-}
-
-// Start typing effect after page load
-window.addEventListener('load', () => {
-    setTimeout(typeText, 500);
-});
-
+// [Legacy typing effect removed to support new dynamic typing]
 // Modal functionality for project screenshots with swipe support
 let modalImages = [];
 let currentModalIndex = 0;
@@ -1373,4 +1356,72 @@ if (filterBtns.length > 0) {
         });
     });
 }
+
+// ===================================
+// FINAL POLISH LOGIC
+// ===================================
+
+// 1. TYPING EFFECT
+const typingText = document.querySelector('.typing-text');
+const words = ["Data & BI Analyst", "Analytics Engineer", "Problem Solver", "Tech Enthusiast"];
+let heroWordIndex = 0;
+let heroCharIndex = 0;
+let heroIsDeleting = false;
+let heroTypeSpeed = 100;
+
+function type() {
+    if (!typingText) return; // Guard clause
+
+    const currentWord = words[heroWordIndex];
+
+    if (heroIsDeleting) {
+        typingText.textContent = currentWord.substring(0, heroCharIndex - 1);
+        heroCharIndex--;
+        heroTypeSpeed = 50;
+    } else {
+        typingText.textContent = currentWord.substring(0, heroCharIndex + 1);
+        heroCharIndex++;
+        heroTypeSpeed = 100;
+    }
+
+    if (!heroIsDeleting && heroCharIndex === currentWord.length) {
+        heroIsDeleting = true;
+        heroTypeSpeed = 2000; // Pause at end of word
+    } else if (heroIsDeleting && heroCharIndex === 0) {
+        heroIsDeleting = false;
+        heroWordIndex = (heroWordIndex + 1) % words.length;
+        heroTypeSpeed = 500; // Pause before new word
+    }
+
+    setTimeout(type, heroTypeSpeed);
+}
+
+// Start typing effect on load
+document.addEventListener('DOMContentLoaded', type);
+
+// 2. SCROLL ANIMATIONS
+const hiddenElements = document.querySelectorAll('.project-card, .skill-category, .section-title, .about-text, .hero-content');
+
+// Add hidden class initially
+hiddenElements.forEach(el => el.classList.add('hidden'));
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            // Optional: Stop observing once shown
+            // scrollObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+hiddenElements.forEach(el => scrollObserver.observe(el));
+
+// 3. DYNAMIC COPYRIGHT YEAR
+document.addEventListener('DOMContentLoaded', () => {
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
 

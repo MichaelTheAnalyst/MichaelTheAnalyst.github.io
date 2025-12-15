@@ -3370,3 +3370,34 @@ img[role="button"]:focus {
         justify-content: center;
     }
 }
+
+/* ===================================
+   FINAL POLISH ANIMATIONS
+   =================================== */
+
+/* Scroll Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typing Effect */
+.typing-text {
+    color: var(--primary-blue);
+    font-weight: 700;
+    position: relative;
+    border-right: 2px solid var(--text-primary);
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
