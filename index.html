@@ -209,12 +209,10 @@
                         <img src="assets/profile pic.jpg" alt="Masood Nazari - Data & BI Analyst" width="200"
                             height="200">
                     </div>
-                    <h1 class="hero-title">Masood Nazari <br> <span class="highlight">Senior Data Scientist | Clinical
-                            Data Engineer</span></h1>
-                    <p class="hero-subtitle">Bridging the gap between complex operations and technical data science in
-                        Healthcare & Fintech.</p>
-                    <p class="hero-description">Specializing in Python API Architecture, Automating Clinical Workflows,
-                        and Financial Risk Modeling.</p>
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Masood Nazari</span></h1>
+                    <p class="hero-subtitle">I'm a <span class="typing-text"></span></p>
+                    <p class="hero-description">Transforming complex data into actionable insights through automation,
+                        advanced analytics, and AI-powered solutions</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary" aria-label="View portfolio projects">View
                             Projects</a>
@@ -244,14 +242,19 @@
                 <h2 class="section-title" id="about-heading">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I am a Senior Data Scientist and Clinical Data Coordinator with a dual focus: building robust
-                            data architectures and deploying high-impact Machine Learning models. Currently, I act as
-                            the technical lead for data automation at a major UK Clinical Trials Unit.</p>
-                        <p>My background is grounded in both rigorous academic theory (MSc Data & Decision Analytics,
+                        <p>I am a Data Scientist and Clinical Data Engineer with a dual focus: building robust data
+                            architectures and deploying high-impact Machine Learning models. Currently, I act as the
+                            technical lead for data automation at the Southampton Clinical Trials Unit, where I engineer
+                            automated safety monitoring systems and data pipelines.</p>
+                        <p>My background is grounded in rigorous academic theory (MSc Data & Decision Analytics,
                             Distinction) and hard commercial application. Whether it is architecting FCA-compliant
-                            insurance pricing engines or building real-time fraud detection APIs, I focus on one metric:
-                            <strong>Measurable Operational Efficiency</strong>.
+                            insurance pricing engines, building real-time fraud detection APIs, or optimizing clinical
+                            trial operations, I focus on one metric: <strong>Measurable Operational Efficiency</strong>.
                         </p>
+                        <p>Beyond the code, I am a strategic partner. I don't just "run the numbers"—I help stakeholders
+                            redefine their problems to extract maximum value. From implementing sub-second fraud
+                            detection systems for Fintech to streamlining parliamentary reporting for the NIHR, my work
+                            is defined by precision, scalability, and impact.</p>
 
                         <h3>Core Focus:</h3>
                         <ul>
@@ -298,44 +301,6 @@
                             Graph Network Analysis for identifying money mule accounts • Drift Detection implemented for
                             model longevity.
                         </p>
-                        <div class="project-screenshots project-carousel" data-carousel="fraud-detection" role="region"
-                            aria-label="Fraud Detection Dashboard API screenshots">
-                            <div class="carousel-container">
-                                <div class="carousel-track">
-                                    <div class="carousel-slide active">
-                                        <img src="assets/page 1.png"
-                                            alt="Fraud Detection Dashboard - Executive Pulse showing real-time fraud monitoring metrics, transaction volume, and risk scores"
-                                            loading="lazy" onclick="openModal('assets/page 1.png', this)" role="button"
-                                            tabindex="0"
-                                            aria-label="View Fraud Detection Dashboard screenshot 1 in full size">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="assets/Page 2.png"
-                                            alt="Fraud Detection Dashboard - Command Center with advanced analytics, fraud network graphs, and predictive risk scoring"
-                                            loading="lazy" onclick="openModal('assets/Page 2.png', this)" role="button"
-                                            tabindex="0"
-                                            aria-label="View Fraud Detection Dashboard screenshot 2 in full size">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-btn carousel-prev"
-                                onclick="moveProjectCarousel('fraud-detection', -1)"
-                                aria-label="Previous Fraud Detection screenshot" type="button">
-                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                            </button>
-                            <button class="carousel-btn carousel-next"
-                                onclick="moveProjectCarousel('fraud-detection', 1)"
-                                aria-label="Next Fraud Detection screenshot" type="button">
-                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                            </button>
-                            <div class="carousel-dots" role="tablist"
-                                aria-label="Fraud Detection Dashboard screenshot navigation">
-                                <span class="dot active" onclick="goToProjectSlide('fraud-detection', 0)" role="tab"
-                                    aria-label="Go to screenshot 1" tabindex="0" aria-selected="true"></span>
-                                <span class="dot" onclick="goToProjectSlide('fraud-detection', 1)" role="tab"
-                                    aria-label="Go to screenshot 2" tabindex="0" aria-selected="false"></span>
-                            </div>
-                        </div>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">FastAPI</span>
@@ -345,6 +310,34 @@
                         <div class="project-links">
                             <a href="https://github.com/MichaelTheAnalyst/fraud-detection-dashboard-api" target="_blank"
                                 class="project-link project-link-github">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2. Bank Marketing Analytics Dashboard -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bank Marketing Analytics Dashboard</h3>
+                        <p><strong>The Challenge:</strong> Financial institutions need data-driven insights to optimise
+                            marketing campaign effectiveness but lack integrated analytics platforms.<br><br>
+                            <strong>The Solution:</strong> Built a dual-interface analytics platform (Streamlit +
+                            React/Flask) featuring 6 ML algorithms, K-Means customer segmentation, and economic impact
+                            assessment.<br><br>
+                            <strong>The Impact:</strong> 90.5%+ ML accuracy • 15-20% conversion improvement through
+                            segmentation • 41,188 customer analysis • Full-stack ML platform.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MichaelTheAnalyst/-bank-marketing-analytics-dashboard"
+                                target="_blank" class="project-link project-link-github">
                                 <i class="fab fa-github"></i> View Code
                             </a>
                         </div>
@@ -523,6 +516,41 @@
                         </div>
                     </div>
 
+                    <!-- 5. Clinical Trials Career Pathways - Bonus/Supporting Project -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Clinical Trials Career Pathways</h3>
+                        <p><strong>The Challenge:</strong> Students didn't understand clinical research career
+                            opportunities, and new SCTU staff needed clarity on unit structure and role progression
+                            pathways.<br><br>
+                            <strong>The Solution:</strong> Built interactive HTML/CSS career fair materials featuring 8
+                            role categories, educational pathways (BSc→MSc→Professional), staff profiles, and detailed
+                            day-to-day responsibilities across the clinical trials unit.<br><br>
+                            <strong>The Impact:</strong> Dual-purpose resource for student recruitment and staff
+                            onboarding • Responsive design • Standalone embedded assets • Demystified clinical trials
+                            careers.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Web Development</span>
+                            <span class="tag">UX Design</span>
+                            <span class="tag">Career Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MichaelTheAnalyst/clinical-trials-career-pathways"
+                                target="_blank" class="project-link project-link-github">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/MichaelTheAnalyst/clinical-trials-career-pathways/main/staff_profiles_demo_standalone.html"
+                                target="_blank" class="project-link project-link-demo"
+                                title="Interactive Staff Profiles & Career Pathways">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+
                     <!-- 6. CTA Project Card - Next Opportunity -->
                     <!-- CTA Project Card -->
                     <div class="project-card project-card-cta">
@@ -661,6 +689,36 @@
                                     <button class="view-recommendation-btn" onclick="openModal('assets/rec2.png', null)"
                                         aria-label="View full recommendation letter from Dr. Gevorg Stepanyan"
                                         type="button">
+                                        <i class="fas fa-expand" aria-hidden="true"></i>
+                                        <span>View Full Recommendation</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="recommendation-card">
+                                <div class="recommendation-quote-wrapper">
+                                    <div class="quote-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <blockquote class="recommendation-quote">
+                                        "Only one word that comes to mind when I think of Masood, and that's AWESOME. He
+                                        was a consummate professional at all times. His work ethic was impeccable, and
+                                        he was always the first person to offer help and support."
+                                    </blockquote>
+                                </div>
+                                <div class="recommendation-footer">
+                                    <div class="recommendation-author">
+                                        <div class="recommendation-avatar">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <div class="recommendation-info">
+                                            <h3 class="recommendation-name">Zohreh Safaei</h3>
+                                            <p class="recommendation-role">Digital Marketer | SEO Specialist</p>
+                                            <p class="recommendation-relationship">Former Direct Report</p>
+                                        </div>
+                                    </div>
+                                    <button class="view-recommendation-btn" onclick="openModal('assets/rec3.png', null)"
+                                        aria-label="View full recommendation letter from Zohreh Safaei" type="button">
                                         <i class="fas fa-expand" aria-hidden="true"></i>
                                         <span>View Full Recommendation</span>
                                     </button>
