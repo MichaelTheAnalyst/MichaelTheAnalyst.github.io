@@ -13,47 +13,49 @@
 }
 
 :root {
-    /* Primary Colors - Professional Blues */
-    --primary-blue: #0066cc;
-    /* Deeper, more corporate blue */
-    --primary-dark: #004494;
-    --primary-light: #4d94ff;
+    /* Primary Colors - Executive Navy */
+    --primary-blue: #003366;
+    /* Deep Navy */
+    --primary-dark: #002244;
+    --primary-light: #004488;
 
-    /* Accent Colors - Refined */
-    --accent-teal: #00a8a4;
-    --accent-orange: #f57c00;
-    --accent-purple: #8e24aa;
+    /* Accent Colors - Minimalist */
+    --accent-teal: #005a8d;
+    /* Muted Blue-Teal */
+    --accent-orange: #d35400;
+    /* Darker, distinctive orange */
+    --accent-purple: #5e35b1;
 
-    /* Neutral Colors - Higher Contrast */
-    --text-primary: #111111;
-    --text-secondary: #444444;
-    --text-light: #757575;
+    /* Neutral Colors - High Contrast */
+    --text-primary: #0a0a0a;
+    --text-secondary: #333333;
+    /* Darker for readability */
+    --text-light: #666666;
     --bg-white: #ffffff;
-    --bg-light: #f8f9fa;
-    /* Standard light grey */
+    --bg-light: #f4f6f8;
+    /* Cool corporate grey */
     --bg-lighter: #ffffff;
     --bg-dark: #121212;
     --bg-card: #ffffff;
 
-    /* Gradients - Subtle & Professional */
-    --gradient-primary: linear-gradient(135deg, #0066cc 0%, #004494 100%);
-    --gradient-warm: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%);
-    --gradient-cool: linear-gradient(135deg, #00a8a4 0%, #00897b 100%);
+    /* Gradients - FLATTENED to Solids (Functionally) */
+    --gradient-primary: linear-gradient(135deg, #003366 0%, #003366 100%);
+    --gradient-warm: linear-gradient(135deg, #d35400 0%, #d35400 100%);
+    --gradient-cool: linear-gradient(135deg, #005a8d 0%, #005a8d 100%);
 
-    /* Shadows - softer and more diffuse */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* Shadows - Minimalist */
+    --shadow-sm: none;
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 10px 15px rgba(0, 0, 0, 0.05);
+    --shadow-2xl: 0 20px 25px rgba(0, 0, 0, 0.05);
 
-    /* Border Radius - Tighter & Cleaner */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.375rem;
-    --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
-    --radius-2xl: 1rem;
-    /* Reduced from 1.5rem for cleaner look */
+    /* Border Radius - Sharp & Professional */
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 2px;
+    --radius-xl: 2px;
+    --radius-2xl: 2px;
 
     /* Transitions */
     --transition-fast: 150ms ease-in-out;
@@ -674,12 +676,12 @@ section {
 
 .project-card {
     background: var(--bg-card);
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-sm);
     padding: 2.5rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
     transition: all var(--transition-base);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    /* Distinct border */
+    border: 1px solid #e0e0e0;
+    /* Crisp border */
     position: relative;
     overflow: hidden;
 }
@@ -698,9 +700,11 @@ section {
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
-    /* More stable, less jumpy */
-    box-shadow: var(--shadow-xl);
+    transform: none;
+    /* No movement */
+    border-color: var(--primary-blue);
+    /* Highlight border instead */
+    box-shadow: var(--shadow-md);
 }
 
 .project-card:hover::before {
@@ -708,26 +712,30 @@ section {
 }
 
 .project-icon {
-    width: 70px;
-    height: 70px;
-    background: var(--gradient-primary);
-    border-radius: var(--radius-xl);
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    /* Remove background */
+    border-radius: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 1.75rem;
-    box-shadow: 0 8px 16px rgba(15, 98, 254, 0.25);
+    justify-content: flex-start;
+    /* Align left */
+    margin-bottom: 1.5rem;
+    box-shadow: none;
     transition: all var(--transition-base);
+    padding-left: 0;
 }
 
 .project-card:hover .project-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 12px 24px rgba(15, 98, 254, 0.35);
+    transform: none;
+    box-shadow: none;
 }
 
 .project-icon i {
-    font-size: 2rem;
-    color: white;
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    /* Icon color matches theme */
 }
 
 .project-card h3 {
