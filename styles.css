@@ -509,7 +509,7 @@ body {
 
 .hero-domains {
     font-size: clamp(0.875rem, 1.5vw, 1rem);
-    color: var(--text-secondary);
+    color: #e2e8f0;
     text-align: center;
     margin-top: 0;
     margin-bottom: 3rem;
