@@ -282,7 +282,34 @@
                         </div>
                     </div>
 
-                    <!-- 1. Fraud Detection Dashboard API - Fintech/AI "Wow" Factor -->
+                    <!-- 1. Audit Trail Risk Analytics Engine - SCTU GxP Compliance -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3>Audit Trail Risk Analytics Engine — SCTU</h3>
+                        <p><strong>The Challenge:</strong> Clinical data coordinators spent 2–4 hours per reviewer per month manually filtering hundreds of thousands of rows of EDC audit trail exports in Excel — with no consistent methodology, no cross-site comparison, and no reproducibility. Risk indicators like after-hours edits, copy-paste patterns, and suspicious user-overwrite sequences went entirely undetected.<br><br>
+                            <strong>The Solution:</strong> Built a full-stack clinical risk-monitoring platform (Python extraction pipeline + R Shiny analytics engine) ingesting audit trail data directly from the Medidata RAVE RWS API. A schema normalisation layer resolves two divergent EDC CSV schemas into one canonical format at ingest time. Seven isolated analytical modules cover: excessive change rates, no-query edits, out-of-hours activity, copy-paste detection (time-window clustering across subject–field combinations), user-after-user sequence analysis, and a configurable multi-dimensional RAG risk scoring model across all sites simultaneously. Processes 1.7M+ records with a three-tier CSV reader (vroom → fread → read.csv fallback) and 250ms debounced reactive filters. One-click per-site Excel export via openxlsx.<br><br>
+                            <strong>The Impact (Production):</strong> Review time cut from 2–4 hours to under 10 minutes per trial (90–95% reduction) • 8–16 hours/month recovered across 2 reviewers • Standardised risk methodology eliminates reviewer-dependent variation entirely • 1,713,713 records ingested in ~3–5 seconds • All 5 originally requested risk dimensions covered plus a 6th synthesising Risk Summary • Zero data ever written or stored — fully read-only, GxP-adjacent.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">R Shiny</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Medidata RAVE API</span>
+                            <span class="tag">Plotly</span>
+                            <span class="tag">GxP Compliance</span>
+                            <span class="tag">Risk Analytics</span>
+                            <span class="tag">openxlsx</span>
+                            <span class="tag">vroom</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link" style="cursor:default;opacity:0.7;">
+                                <i class="fas fa-lock"></i> Production / Confidential
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Fraud Detection Dashboard API - Fintech/AI "Wow" Factor -->
                     <div class="project-card">
                         <div class="project-icon">
                             <i class="fas fa-shield-alt"></i>
