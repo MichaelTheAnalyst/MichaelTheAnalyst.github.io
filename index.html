@@ -241,9 +241,9 @@
                 <div class="about-content">
                     <div class="about-text">
                         <p>I'm a Senior Data Engineer and technical lead at the University of Southampton's Clinical Trials Unit, where I architect and deploy production-grade ETL pipelines and data quality frameworks for high-stakes oncology research. I hold an <strong>MSc in Data &amp; Decision Analytics from the University of Southampton, awarded with Distinction</strong>, and had the honour of receiving the <strong>Presidential Scholarship for academic excellence</strong>.</p>
-                        <p>With 5+ years of experience across regulated healthcare and FinTech environments, I specialise in Python, FastAPI, Docker, and Azure — building GDPR/GxP-compliant data architectures that are directly transferable to FCA/Basel III regulated sectors. My pipeline automation work reduced data ingestion errors to &lt;0.1% and cut manual processing workloads by 70%+.</p>
+                        <p>With 5+ years of experience across regulated healthcare and FinTech environments, I specialise in Python, FastAPI, Docker, and Azure, building GDPR/GxP-compliant data architectures that are directly transferable to FCA/Basel III regulated sectors. My pipeline automation work reduced data ingestion errors to &lt;0.1% and cut manual processing workloads by 70%+.</p>
                         <p>I also build FinTech-oriented data systems, including high-concurrency fraud detection APIs processing 5M+ transactions, actuarial pricing engines deployed on Azure with Terraform, and full-stack ML platforms with real-time predictive capabilities.</p>
-                        <p>Whether it's designing immutable audit-log pipelines for clinical trial compliance, engineering spatial ETL systems for multi-terabyte satellite datasets, or architecting NIHR research intelligence platforms worth £171.6M in portfolio value — I approach every project with engineering rigour and a focus on measurable business impact.</p>
+                        <p>Whether it's designing immutable audit-log pipelines for clinical trial compliance, engineering spatial ETL systems for multi-terabyte satellite datasets, or architecting NIHR research intelligence platforms worth £171.6M in portfolio value. I approach every project with engineering rigour and a focus on measurable business impact.</p>
                     </div>
                 </div>
             </div>
@@ -260,7 +260,7 @@
                         <div class="project-icon">
                             <i class="fas fa-hospital-alt"></i>
                         </div>
-                        <h3>NHS Oncology Trial Data Pipeline — SCTU</h3>
+                        <h3>NHS Oncology Trial Data Pipeline | SCTU</h3>
                         <p><strong>The Challenge:</strong> Clinical sites across 70+ NHS locations submitted Adverse Event data in inconsistent formats, causing reconciliation errors and regulatory risk across the BNT122-01, BNT113-01, and SCOPE oncology trials.<br><br>
                             <strong>The Solution:</strong> Designed and deployed a production-grade, event-driven RESTful ETL pipeline (Python/FastAPI) with Pydantic schema validation, automated error-logging, and a containerised near-real-time reporting layer (Streamlit/Docker). Implemented immutable GDPR/GxP-compliant audit-log pipelines and a full data lineage framework. Led infrastructure security audit that identified OAuth vulnerabilities and authored remediation roadmap.<br><br>
                             <strong>The Impact (Production):</strong> Data ingestion errors reduced to &lt;0.1% • Trial Managers identify discrepancies 6× faster • Manual data processing cut by 70%+ • QA retrieval time reduced by 80% • Directly transferable to FCA/Basel III regulated environments.
@@ -287,10 +287,10 @@
                         <div class="project-icon">
                             <i class="fas fa-search-plus"></i>
                         </div>
-                        <h3>Audit Trail Risk Analytics Engine — SCTU</h3>
-                        <p><strong>The Challenge:</strong> Clinical data coordinators spent 2–4 hours per reviewer per month manually filtering hundreds of thousands of rows of EDC audit trail exports in Excel — with no consistent methodology, no cross-site comparison, and no reproducibility. Risk indicators like after-hours edits, copy-paste patterns, and suspicious user-overwrite sequences went entirely undetected.<br><br>
+                        <h3>Audit Trail Risk Analytics Engine | SCTU</h3>
+                        <p><strong>The Challenge:</strong> Clinical data coordinators spent 2–4 hours per reviewer per month manually filtering hundreds of thousands of rows of EDC audit trail exports in Excel, with no consistent methodology, no cross-site comparison, and no reproducibility. Risk indicators like after-hours edits, copy-paste patterns, and suspicious user-overwrite sequences went entirely undetected.<br><br>
                             <strong>The Solution:</strong> Built a full-stack clinical risk-monitoring platform (Python extraction pipeline + R Shiny analytics engine) ingesting audit trail data directly from the Medidata RAVE RWS API. A schema normalisation layer resolves two divergent EDC CSV schemas into one canonical format at ingest time. Seven isolated analytical modules cover: excessive change rates, no-query edits, out-of-hours activity, copy-paste detection (time-window clustering across subject–field combinations), user-after-user sequence analysis, and a configurable multi-dimensional RAG risk scoring model across all sites simultaneously. Processes 1.7M+ records with a three-tier CSV reader (vroom → fread → read.csv fallback) and 250ms debounced reactive filters. One-click per-site Excel export via openxlsx.<br><br>
-                            <strong>The Impact (Production):</strong> Review time cut from 2–4 hours to under 10 minutes per trial (90–95% reduction) • 8–16 hours/month recovered across 2 reviewers • Standardised risk methodology eliminates reviewer-dependent variation entirely • 1,713,713 records ingested in ~3–5 seconds • All 5 originally requested risk dimensions covered plus a 6th synthesising Risk Summary • Zero data ever written or stored — fully read-only, GxP-adjacent.
+                            <strong>The Impact (Production):</strong> Review time cut from 2–4 hours to under 10 minutes per trial (90–95% reduction) • 8–16 hours/month recovered across 2 reviewers • Standardised risk methodology eliminates reviewer-dependent variation entirely • 1,713,713 records ingested in ~3–5 seconds • All 5 originally requested risk dimensions covered plus a 6th synthesising Risk Summary • Zero data ever written or stored; fully read-only, GxP-adjacent.
                         </p>
                         <div class="project-tags">
                             <span class="tag">R Shiny</span>
