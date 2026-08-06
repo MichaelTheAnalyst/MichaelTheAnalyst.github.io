@@ -3385,6 +3385,93 @@ img[role="button"]:focus {
 }
 
 /* ===================================
+   PUBLICATIONS
+   =================================== */
+.publications {
+    background: var(--bg-light);
+}
+
+.publications-subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: -2rem auto 3rem;
+    line-height: 1.7;
+}
+
+.publication-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--accent-orange);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    padding: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    transition: all var(--transition-base);
+}
+
+.publication-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-3px);
+}
+
+.publication-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-blue);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.25rem;
+}
+
+.publication-title {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.publication-authors {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin-bottom: 0.35rem;
+}
+
+.publication-venue {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.publication-abstract,
+.publication-results {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.publication-results strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .publication-card {
+        padding: 1.75rem;
+    }
+
+    .publication-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===================================
    FINAL POLISH ANIMATIONS
    =================================== */
 

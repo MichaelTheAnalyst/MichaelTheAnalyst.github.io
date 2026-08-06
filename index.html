@@ -122,6 +122,33 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "An AI-Based Decision-Support Pipeline for Day-Ahead Photovoltaic Forecasting",
+        "author": [
+            { "@type": "Person", "name": "Fariba Dehghan" },
+            { "@type": "Person", "name": "Sebastian Stein" },
+            { "@type": "Person", "name": "Vahid Yazdanpanah" },
+            { "@type": "Person", "name": "Stephanie Gauthier" },
+            { "@type": "Person", "name": "Masood Nazari" }
+        ],
+        "datePublished": "2026-08-03",
+        "url": "https://arxiv.org/abs/2608.02088",
+        "identifier": "arXiv:2608.02088",
+        "isPartOf": {
+            "@type": "PublicationEvent",
+            "name": "UK AI Conference (UK-AI 2026)"
+        },
+        "about": [
+            "Machine Learning",
+            "Photovoltaic Forecasting",
+            "Ensemble Stacking",
+            "Time Series Forecasting"
+        ]
+    }
+    </script>
 
     <!-- Google tag (gtag.js) with Consent Mode -->
     <script>
@@ -180,6 +207,8 @@
                         aria-label="Go to about section">About</a></li>
                 <li role="none"><a href="#projects" class="nav-link" role="menuitem"
                         aria-label="Go to projects section">Projects</a></li>
+                <li role="none"><a href="#publications" class="nav-link" role="menuitem"
+                        aria-label="Go to publications section">Publications</a></li>
                 <li role="none"><a href="#skills" class="nav-link" role="menuitem"
                         aria-label="Go to skills section">Skills</a></li>
                 <li role="none"><a href="#recommendations" class="nav-link" role="menuitem"
@@ -662,6 +691,54 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="publications" aria-labelledby="publications-heading">
+            <div class="container">
+                <h2 class="section-title" id="publications-heading">Peer-Reviewed Research</h2>
+                <p class="publications-subtitle">Applied machine learning research on energy forecasting, accepted at the UK
+                    AI Conference 2026.</p>
+                <article class="publication-card">
+                    <div class="publication-badge">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                        <span>Accepted · UK-AI 2026</span>
+                    </div>
+                    <h3 class="publication-title">An AI-Based Decision-Support Pipeline for Day-Ahead Photovoltaic
+                        Forecasting</h3>
+                    <p class="publication-authors">Fariba Dehghan, Sebastian Stein, Vahid Yazdanpanah, Stephanie Gauthier,
+                        <strong>Masood Nazari</strong>
+                    </p>
+                    <p class="publication-venue">Proceedings of the UK AI Conference (UK-AI 2026) · arXiv:2608.02088
+                        [cs.LG] · 13 pages, 6 figures</p>
+                    <p class="publication-abstract">Newly deployed solar sites rarely have the long, clean histories that
+                        day-ahead forecasting models assume. Working from a UK charging-station site, we built a
+                        deployment-oriented pipeline that corrects timestamp conventions, constructs leakage-safe
+                        solar-geometry and clearness-index features, and combines complementary predictors through
+                        validation-learned stacking.</p>
+                    <p class="publication-results"><strong>Results:</strong> 32% reduction in daylight normalised RMSE
+                        against a smart-persistence baseline under day-blocked evaluation (9% under the stricter
+                        rolling-origin protocol), and 6.6% / 6.4% improvements over the strongest individual machine
+                        learning baseline.</p>
+                    <div class="project-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Ensemble Stacking</span>
+                        <span class="tag">Time Series Forecasting</span>
+                        <span class="tag">Feature Engineering</span>
+                        <span class="tag">Energy Systems</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://arxiv.org/abs/2608.02088" target="_blank" rel="noopener noreferrer"
+                            class="project-link project-link-github" aria-label="View paper on arXiv">
+                            <i class="fas fa-book-open" aria-hidden="true"></i> View on arXiv
+                        </a>
+                        <a href="https://arxiv.org/pdf/2608.02088" target="_blank" rel="noopener noreferrer"
+                            class="project-link project-link-demo" aria-label="Read the full paper as PDF">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i> Read Full Paper
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
