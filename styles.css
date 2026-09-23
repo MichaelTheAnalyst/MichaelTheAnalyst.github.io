@@ -37,6 +37,7 @@
     --bg-lighter: #ffffff;
     --bg-dark: #121212;
     --bg-card: #ffffff;
+    --border: #d9e2ec;
 
     /* Gradients - FLATTENED to Solids (Functionally) */
     --gradient-primary: linear-gradient(135deg, #003366 0%, #003366 100%);
@@ -73,6 +74,7 @@
     --bg-lighter: #121212;
     --bg-dark: #0a0a0a;
     --bg-card: #1f1f1f;
+    --border: #3d4b59;
 
     /* Adjusted Shadows for Dark Mode */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -90,6 +92,7 @@
 html {
     overflow-x: hidden;
     width: 100%;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -197,6 +200,38 @@ body {
     background: var(--text-primary);
     transition: all var(--transition-base);
     border-radius: 2px;
+}
+
+@media (max-width: 1100px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--bg-white);
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        gap: 0;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--bg-light);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
 }
 
 /* Theme Toggle Button */
@@ -654,10 +689,148 @@ section {
 }
 
 /* ===================================
+   EXPERIENCE SECTION
+   =================================== */
+.experience {
+    background: var(--bg-lighter);
+}
+
+.experience-intro {
+    max-width: 760px;
+    margin: -2rem auto 3rem;
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.experience-timeline {
+    position: relative;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding-left: 2.75rem;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.55rem;
+    width: 2px;
+    background: var(--border);
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-marker {
+    position: absolute;
+    top: 1.65rem;
+    left: -2.65rem;
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid var(--bg-lighter);
+    border-radius: 50%;
+    background: var(--primary-blue);
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.experience-item-current .experience-marker {
+    background: var(--accent-teal);
+    box-shadow: 0 0 0 2px var(--accent-teal);
+}
+
+.experience-card {
+    padding: 1.75rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+}
+
+.experience-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.experience-header h3 {
+    margin: 0 0 0.35rem;
+    color: var(--text-primary);
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.experience-organisation {
+    margin: 0;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.experience-meta {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--text-secondary);
+    text-align: right;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.experience-card > p,
+.experience-card li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.experience-card > p {
+    margin-bottom: 0;
+}
+
+.experience-card ul {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.experience-card li + li {
+    margin-top: 0.55rem;
+}
+
+@media (max-width: 700px) {
+    .experience-timeline {
+        padding-left: 2rem;
+    }
+
+    .experience-marker {
+        left: -1.9rem;
+    }
+
+    .experience-card {
+        padding: 1.35rem;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .experience-meta {
+        text-align: left;
+    }
+}
+
+/* ===================================
    PROJECTS SECTION - Enhanced Cards
    =================================== */
 .projects {
-    background: var(--bg-lighter);
+    background: var(--bg-white);
 }
 
 .projects-grid {
@@ -3500,4 +3673,12 @@ img[role="button"]:focus {
     50% {
         border-color: transparent
     }
+}
+
+.project-card-featured {
+    border-color: var(--primary-blue);
+}
+
+.project-card-featured::before {
+    transform: scaleX(1);
 }

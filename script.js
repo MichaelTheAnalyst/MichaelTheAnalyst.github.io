@@ -1363,7 +1363,7 @@ if (filterBtns.length > 0) {
 
 // 1. TYPING EFFECT
 const typingText = document.querySelector('.typing-text');
-const words = ["Clinical Data Coordinator", "Healthcare Data Analyst", "Problem Solver", "Tech Enthusiast"];
+const words = ["Clinical Data Coordinator", "NHS Research Professional", "Programme Insight Specialist", "Public Engagement Builder"];
 let heroWordIndex = 0;
 let heroCharIndex = 0;
 let heroIsDeleting = false;
